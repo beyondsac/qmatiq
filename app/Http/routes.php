@@ -11,6 +11,7 @@
 |
 */
 /* Home */
+Route::get('login', ['uses' => 'HomeController@login','as' => 'login']);
 Route::get('/', ['uses' => 'HomeController@index','as' => 'home']);
 /* Configuracion */
 Route::get('configuracion', 					['uses' => 'Configuracion\HomeController@index','as' => 'configuracion']);

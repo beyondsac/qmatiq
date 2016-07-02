@@ -123,6 +123,9 @@ a:visited{
 .fs_19{
     font-size: 19px;
 }
+.fs_20{
+    font-size: 20px;
+}
 .fs_21{
     font-size: 21px;
 }
@@ -349,6 +352,9 @@ a:visited{
 .pl_10{
     padding-left: 10px;
 }
+.pl_15{
+    padding-left: 15px;
+}
 /* orientacion */
 /* Header */
 header{
@@ -368,6 +374,39 @@ header{
 }
 .profile i{
     color: #8293a3;
+}
+/* Logeo */
+.input_blanco{
+    background-color: #fff;
+    border: 0;
+    border-radius: 5px;
+    height: 30px;
+    padding: 0 10px;
+}
+.fondo_logeo{
+    background-color: #384a5e;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+}
+.logeo{
+    position: absolute;
+    width: 260px;
+    height: 230px;
+    top: 50%;
+    left: 50%;
+    margin: -115px 0 0 -130px;
+}
+.codigo_autenticidad{
+    background-color: #7fd0d9;
+}
+.btn_logeo{
+    margin-top: 0;
+    padding: 0 0 0 5px;
+    position: absolute;
 }
 /* Logo */
 .logo{

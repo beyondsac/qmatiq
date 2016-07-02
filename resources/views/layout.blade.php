@@ -12,9 +12,10 @@
         @yield('css')
     </head>
     <body>
+        @section('pagina')  
         <div class="row">
             <div class="container-fluid">
-                <header>    
+                <header>
                     <section>
                         <a href="{{ route('home') }}" class="logo center-block pull-left">
                             <img src="{{ asset('img/logo1.png')}}">
@@ -177,6 +178,7 @@
                 </section>
             </div>
         </div>
+        @show
         <footer>
             <script src="{{ asset('js/all.js') }}"></script>
             <script src="{{ asset('js/global.js') }}"></script>
