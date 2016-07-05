@@ -7,8 +7,6 @@
         <title>@yield('titulo')</title>
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('css/fonts.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('css/global.css') }}" rel="stylesheet" type="text/css">
         @yield('css')
     </head>
     <body>
@@ -181,7 +179,6 @@
         @show
         <footer>
             <script src="{{ asset('js/all.js') }}"></script>
-            <script src="{{ asset('js/global.js') }}"></script>
         </footer>
     </body>
 </html>

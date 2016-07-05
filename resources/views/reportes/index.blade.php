@@ -16,7 +16,7 @@
 						<div class="col-lg-6 col-md-6">
 							<div class="row">
 								<div class="col-lg-4 col-md-5">
-									<a href="#">
+									<a href="{{ route('alcance_de_turnos') }}">
 										<div class="circulo circulo_gris text-center">
 											<i class="fa fa-check-circle-o fs_55"></i>
 										</div>
@@ -24,7 +24,7 @@
 								</div>
 								<div class="col-lg-7 col-md-7 mt_7 p_0">
 									<h2 class="h_37_ThinC fs_29 m_0">
-										<a href="#">
+										<a href="{{ route('alcance_de_turnos') }}">
 											Clientes atendidos <i class="fa fa-angle-right"></i>
 										</a>
 									</h2>
@@ -39,7 +39,7 @@
 						<div class="col-lg-6 col-md-6">
 							<div class="row">
 								<div class="col-lg-4 col-md-5">
-									<a href="#">
+									<a href="{{ route('origen_de_turnos') }}">
 										<div class="circulo circulo_gris text-center">
 											<i class="fa fa-ban fs_55"></i>
 										</div>
@@ -47,7 +47,7 @@
 								</div>
 								<div class="col-lg-7 col-md-7 mt_7 p_0">
 									<h2 class="h_37_ThinC fs_29 m_0">
-										<a href="#">
+										<a href="{{ route('origen_de_turnos') }}">
 											Clientes salteados <i class="fa fa-angle-right"></i>
 										</a>
 									</h2>
@@ -66,7 +66,7 @@
 						<div class="col-lg-6 col-md-6">
 							<div class="row">
 								<div class="col-lg-4 col-md-5">
-									<a href="#">
+									<a href="{{ route('promedio_de_atencion') }}">
 										<div class="circulo circulo_gris text-center">
 											<i class="fa fa-qrcode fs_55"></i>
 										</div>
@@ -74,7 +74,7 @@
 								</div>
 								<div class="col-lg-7 col-md-7 mt_7 p_0 pr_0">
 									<h2 class="h_37_ThinC fs_29 m_0">
-										<a href="#">
+										<a href="{{ route('promedio_de_atencion') }}">
 											Escaneos QR <i class="fa fa-angle-right"></i>
 										</a>
 									</h2>
@@ -89,7 +89,7 @@
 						<div class="col-lg-6 col-md-6">
 							<div class="row">
 								<div class="col-lg-4 col-md-5">
-									<a href="#">
+									<a href="{{ route('frecuencia_por_tramite') }}">
 										<div class="circulo circulo_gris text-center">
 											<i class="fa fa-clock-o fs_55"></i>
 										</div>
@@ -97,7 +97,7 @@
 								</div>
 								<div class="col-lg-7 col-md-7 mt_7 p_0">
 									<h2 class="h_37_ThinC fs_29 m_0">
-										<a href="#">
+										<a href="{{ route('frecuencia_por_tramite') }}">
 											Saturación <i class="fa fa-angle-right"></i>
 										</a>
 									</h2>
@@ -116,7 +116,7 @@
 						<div class="col-lg-6 col-md-6">
 							<div class="row">
 								<div class="col-lg-4 col-md-5">
-									<a href="#">
+									<a href="{{ route('saturacion') }}">
 										<div class="circulo circulo_gris text-center">
 											<i class="fa fa-mobile fs_55"></i>
 										</div>
@@ -124,7 +124,7 @@
 								</div>
 								<div class="col-lg-7 col-md-7 mt_7 p_0">
 									<h2 class="h_37_ThinC fs_29 m_0">
-										<a href="#">
+										<a href="{{ route('saturacion') }}">
 											Descarga de datos <i class="fa fa-angle-right"></i>
 										</a>
 									</h2>
