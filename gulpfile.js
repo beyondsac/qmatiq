@@ -27,7 +27,6 @@ elixir(function(mix) {
     	'./public/bower_components/angular/angular.min.js',
     	'./public/bower_components/angular-route/angular-route.min.js',
     	'./public/bower_components/angular-cookies/angular-cookies.min.js',
-    	'app/js',
     	'./public/js/global.js',
-    	],'./public/js/all.js');
+    	],'./public/js/lib.js');
 });

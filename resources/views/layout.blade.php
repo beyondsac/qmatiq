@@ -178,7 +178,7 @@
         </div>
         @show
         <footer>
-            <script src="{{ asset('js/all.js') }}"></script>
+            <script src="{{ asset('js/lib.js') }}"></script>
         </footer>
     </body>
 </html>
