@@ -1,1 +1,1 @@
-app.js
+var myapp = angular.module('qmatiq',['ngRoute','ngCookies']);

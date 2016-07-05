@@ -22,11 +22,18 @@ elixir(function(mix) {
     	],'./public/js/all.js');*/
 
     mix.scripts([
+        //Librerias
         './node_modules/jquery/jquery.min.js',
         './node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js',
     	'./public/bower_components/angular/angular.min.js',
     	'./public/bower_components/angular-route/angular-route.min.js',
     	'./public/bower_components/angular-cookies/angular-cookies.min.js',
-    	'./public/js/global.js',
+        //Jquery
+    	'global.js',
     	],'./public/js/lib.js');
+
+    mix.scripts([
+        //AngularJS
+        'app.js',
+        ],'./public/js/app.js');
 });
