@@ -39,3 +39,8 @@ Route::get('atencion/criterios_de_atencion', 	['uses' => 'Atencion\HomeControlle
 Route::get('atencion/mensajes_de_alerta', 		['uses' => 'Atencion\HomeController@mensajes_de_alerta','as' => 'mensajes_de_alerta']);
 /* Reportes */
 Route::get('reportes', 							['uses' => 'Reportes\HomeController@index','as' => 'reportes']);
+Route::get('reportes/alcance_de_turnos', 		['uses' => 'Reportes\HomeController@alcance','as' => 'alcance_de_turnos']);
+Route::get('reportes/origen_de_turnos', 		['uses' => 'Reportes\HomeController@origen','as' => 'origen_de_turnos']);
+Route::get('reportes/promedio_de_atencion',	 	['uses' => 'Reportes\HomeController@promedio','as' => 'promedio_de_atencion']);
+Route::get('reportes/frecuencia_por_tramite', 	['uses' => 'Reportes\HomeController@frecuencia','as' => 'frecuencia_por_tramite']);
+Route::get('reportes/saturacion', 				['uses' => 'Reportes\HomeController@saturacion','as' => 'saturacion']);

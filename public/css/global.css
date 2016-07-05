@@ -14,6 +14,12 @@ a:focus,
 a:visited{
     text-decoration: none;
 }
+.img-responsive{
+    margin: 0 auto;
+}
+.bold{
+    font-weight: bold;
+}
 .cursor{
     cursor: pointer;
 }
@@ -68,6 +74,12 @@ a:visited{
 .fc_ffffff{
     color: #ffffff;
 }
+.fc_e17777{
+    color: #e17777;
+}
+.fc_e1ae6c{
+    color: #e1ae6c;
+}
 .fc_3fb8c6{
     color: #3fb8c6;
 }
@@ -103,6 +115,9 @@ a:visited{
 }
 .fc_99a7b5{
     color: #99a7b5;
+}
+.fc_97bbcd{
+    color: #97bbcd;
 }
 /* size */
 .fs_13{

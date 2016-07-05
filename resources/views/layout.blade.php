@@ -148,20 +148,20 @@
                                         <li @if( Route::is('reportes') ) class="active" @endif>
                                             <a href="{{ route('reportes') }}" class="fs_18">Reportes</a>
                                         </li>
-                                        <li>
-                                            <a href="#">Clientes atendidos</a>
+                                        <li @if( Route::is('alcance_de_turnos') ) class="active" @endif>
+                                            <a href="{{ route('alcance_de_turnos') }}">Alcance de turnos</a>
                                         </li>
-                                        <li>
-                                            <a href="#">Clientes salteados</a>
+                                        <li @if( Route::is('origen_de_turnos') ) class="active" @endif>
+                                            <a href="{{ route('origen_de_turnos') }}">Origen de los turnos</a>
                                         </li>
-                                        <li>
-                                            <a href="#">Escaneos QR</a>
+                                        <li @if( Route::is('promedio_de_atencion') ) class="active" @endif>
+                                            <a href="{{ route('promedio_de_atencion') }}">Promedio de atención</a>
                                         </li>
-                                        <li>
-                                            <a href="#">Saturación</a>
+                                        <li @if( Route::is('frecuencia_por_tramite') ) class="active" @endif>
+                                            <a href="{{ route('frecuencia_por_tramite') }}">Frecuencia por trámite</a>
                                         </li>
-                                        <li>
-                                            <a href="#">Descarga de datos</a>
+                                        <li @if( Route::is('saturacion') ) class="active" @endif>
+                                            <a href="{{ route('saturacion') }}">Saturación</a>
                                         </li>
                                     </ul>
                                 </li>
