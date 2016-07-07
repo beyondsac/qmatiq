@@ -12,14 +12,11 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
+    /*
     mix.sass([
         'app.scss',
         'font.scss',
         'global.scss']);
-    /*mix.scripts([
-    	'./node_modules/jquery/jquery.min.js',
-    	'./node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js',
-    	],'./public/js/all.js');*/
 
     mix.scripts([
         //Librerias
@@ -30,10 +27,25 @@ elixir(function(mix) {
     	'./public/bower_components/angular-cookies/angular-cookies.min.js',
         //Jquery
     	'global.js',
-    	],'./public/js/lib.js');
+    	],'public/js/lib.js');
+    */
+
+    //AngularJS
+    mix.scripts([
+        'app.js',
+        ],'public/js/app.js');
 
     mix.scripts([
-        //AngularJS
-        'app.js',
-        ],'./public/js/app.js');
+        'controllers/userController.js',
+        ],'public/js/controllers.js');
+
+    mix.scripts([
+        'models/userModel.js',
+        ],'public/js/models.js');
+
+    mix.version([
+        'js/lib.js',
+        'js/app.js',
+        'js/models.js',
+        'js/controllers.js']);
 });
