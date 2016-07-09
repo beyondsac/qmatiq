@@ -1,0 +1,1 @@
+{"version":3,"sources":["RolesModal.js"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA;AACA","file":"modals.js","sourcesContent":["qmatiq.controller('RolesModal', ['$scope', function($scope){\n\t//metodos\n\t$scope.close = function(){\n\t\t$scope.$dismiss('cancel');\n\t}\n\n}]);"],"sourceRoot":"/source/"}

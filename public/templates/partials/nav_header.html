@@ -1,0 +1,38 @@
+<header ng-controller="headController">
+    <section>
+        <a href="#/home" class="logo center-block pull-left">
+            <img src="./img/logo1.png">
+        </a>
+    </section>
+    <section>
+        <a href="#/home" class="logo2 center-block pull-left">
+            <img src="./img/logo2.png">
+        </a>
+    </section>
+    <section class="profile">
+        <ul class="nav navbar-nav pull-right hidden-xs pr_15">
+            <li class="dropdown h_47_LightC">
+                <span href="#" class="dropdown-toggle dropdown_name" data-toggle="dropdown" role="button" aria-expanded="false">
+                    Juan Perez <span class="caret"></span>
+                </span>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a ng-click="doLogout()">Cerrar Sesion</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <select name="idioma">
+                    <option value="ES">ES</option>
+                    <option value="EN">EN</option>
+                </select>
+            </li> 
+            <li>
+                <i class="fa fa-user"></i>
+            </li>
+            <li>
+                <i class="fa fa-question-circle"></i>
+            </li>
+        </ul>
+    </section>
+</header>

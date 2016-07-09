@@ -1,4 +1,4 @@
-var qmatiq = angular.module('qmatiq',['ngRoute','ngCookies']);
+var qmatiq = angular.module('qmatiq',['ngRoute', 'ngResource', 'ngCookies', 'ngSanitize', 'ui.bootstrap']);
 
 qmatiq.config(['$routeProvider', '$locationProvider',
 	function($routeProvider, $locationProvider){
@@ -7,14 +7,50 @@ qmatiq.config(['$routeProvider', '$locationProvider',
 			controller: 'userController',
 		});
 
-		$routeProvider.when('/dashboard',{
-			templateUrl : 'templates/users/dashboard.html',
+		$routeProvider.when('/home',{
+			templateUrl : 'templates/users/home.html',
+			controller: 'userController',
+			authenticated: true
+		});
+		//Configuración
+		$routeProvider.when('/configuracion',{
+			templateUrl : 'templates/configuracion/index.html',
 			controller: 'userController',
 			authenticated: true
 		});
 
-		$routeProvider.when('/logout',{
-			templateUrl : 'templates/users/logout.html',
+		$routeProvider.when('/configuracion/roles',{
+			templateUrl : 'templates/configuracion/roles.html',
+			controller: 'rolesController',
+			authenticated: true
+		});
+
+		$routeProvider.when('/configuracion/usuarios',{
+			templateUrl : 'templates/configuracion/index.html',
+			controller: 'userController',
+			authenticated: true
+		});
+
+		$routeProvider.when('/configuracion/logica_de_kioscos',{
+			templateUrl : 'templates/configuracion/index.html',
+			controller: 'userController',
+			authenticated: true
+		});
+
+		$routeProvider.when('/configuracion/estilos',{
+			templateUrl : 'templates/configuracion/index.html',
+			controller: 'userController',
+			authenticated: true
+		});
+
+		$routeProvider.when('/configuracion/seguridad',{
+			templateUrl : 'templates/configuracion/index.html',
+			controller: 'userController',
+			authenticated: true
+		});
+
+		$routeProvider.when('/configuracion/peticiones_de_acceso',{
+			templateUrl : 'templates/configuracion/index.html',
 			controller: 'userController',
 			authenticated: true
 		});
@@ -41,11 +77,13 @@ qmatiq.run(['$rootScope', '$location', 'userModel',
 
 				if(next.$$route.originalPath == ''){
 					if(userModel.getAuthStatus()){
-						$location.path('/dashboard');
+						$location.path('/home');
 					}else{
 						$location.path('/');
 					}
 				}
 			})
 	}
-])
+]);
+
+qmatiq.constant('URL', 'http://api.qmatiq.piensamasalla.com/v1/');

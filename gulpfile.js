@@ -12,7 +12,7 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    /*
+    
     mix.sass([
         'app.scss',
         'font.scss',
@@ -20,16 +20,18 @@ elixir(function(mix) {
 
     mix.scripts([
         //Librerias
-        './node_modules/jquery/jquery.min.js',
-        './node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js',
+        './public/bower_components/jquery/dist/jquery.min.js',
     	'./public/bower_components/angular/angular.min.js',
     	'./public/bower_components/angular-route/angular-route.min.js',
+        './public/bower_components/angular-resource/angular-resource.min.js',
     	'./public/bower_components/angular-cookies/angular-cookies.min.js',
+        './public/bower_components/angular-sanitize/angular-sanitize.min.js',
+        //'./public/bower_components/angular-animate/angular-animate.min.js',
+        './public/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
         //Jquery
     	'global.js',
     	],'public/js/lib.js');
-    */
-
+    
     //AngularJS
     mix.scripts([
         'app.js',
@@ -37,7 +39,15 @@ elixir(function(mix) {
 
     mix.scripts([
         'controllers/userController.js',
+        'controllers/globalController.js',
+        'controllers/headController.js',
+        'controllers/navController.js',
+        'controllers/rolesController.js',
         ],'public/js/controllers.js');
+
+    mix.scripts([
+        'controllers/modales/RolesModal.js',
+        ],'public/js/modals.js');
 
     mix.scripts([
         'models/userModel.js',

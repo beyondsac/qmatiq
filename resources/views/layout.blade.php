@@ -10,12 +10,15 @@
         @yield('css')
     </head>
     <body>
-        <div ng-view></div>
+        <div ng-controller="globalController">
+            <div ng-view></div>
+        </div>
         <footer>
             <script src="{{ asset('js/lib.js') }}"></script>
             <script src="{{ asset('js/app.js') }}"></script>
             <script src="{{ asset('js/models.js') }}"></script>
             <script src="{{ asset('js/controllers.js') }}"></script>
+            <script src="{{ asset('js/modals.js') }}"></script>
         </footer>
     </body>
 </html>

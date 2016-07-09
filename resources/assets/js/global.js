@@ -1,7 +1,4 @@
 $(document).ready(function($) {
-	/* activando bloque de menu y submenu */
-	$('.sidebar .active').parent('ul').css({	display: 'block',	});
-	$('.sidebar .active').parent('ul').parent('li').children('a').addClass('active');
 	/* llamando al modal para las ediciones*/
 	$('.table-select tbody tr').click(function() {
 		$('.modales').modal();

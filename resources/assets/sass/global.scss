@@ -508,6 +508,28 @@ header {
   border: 0;
 }
 
+.dropdown:hover{
+    background-color: #eeeeee;
+}
+.dropdown:hover .dropdown-menu{
+  display: block !important;
+}
+.dropdown_name{
+  display: block;
+  padding: 15px;
+}
+.dropdown,
+.dropdown-menu li {
+  padding: 0 !important;
+}
+
+.dropdown-toggle {
+  color: #3fb8c6 !important;
+}
+
+.dropdown-menu a {
+  padding: 0;
+}
 /* menu profile */
 
 .profile {
@@ -677,18 +699,18 @@ header {
   }
 }
 
-#modal_supervision {
+.modal_supervision {
   thead th.pl_0, tbody td.pl_0 {
     padding-left: 0 !important;
   }
 }
 
-.table-select tbody tr:hover, #modal_logica tbody tr:hover {
+.table-select tbody tr:hover, .modal_logica tbody tr:hover {
   background-color: #e5edf0;
   cursor: pointer;
 }
 
-.table-select tbody tr:hover td, #modal_logica tbody tr:hover td {
+.table-select tbody tr:hover td, .modal_logica tbody tr:hover td {
   color: #4cbdca;
 }
 
@@ -744,13 +766,13 @@ header {
 
 /* Modal */
 
-.modal-predeterminado .modal-content {
+.modal-predeterminado .modal-dialog {
   bottom: 0px;
-  top: 57px;
+  top: 20px;
 }
 
-.modal-content {
-  /*position: fixed;*/
+.modal-dialog {
+  position: fixed;
   right: 15px;
 }
 
@@ -759,7 +781,7 @@ header {
   overflow-y: auto;
 }
 
-.modal-content table {
+.modal-dialog table {
   th {
     padding-bottom: 10px;
   }
@@ -772,7 +794,7 @@ header {
   /*background-color: transparent;*/
 }
 
-#modal_roles {
+.modal_roles {
   thead {
     th:first-child {
       width: 182px;
@@ -792,7 +814,7 @@ header {
       width: 230px;
     }
   }
-  .modal-content table {
+  .modal-dialog table {
     th {
       &:first-child {
         padding-right: 0;
@@ -818,8 +840,8 @@ header {
     modal criterios
  */
 
-.modal-usuarios .modal-content, .modal-criterios .modal-content {
-  top: 170px !important;
+.modal-usuarios .modal-dialog, .modal-criterios .modal-dialog {
+  top: 133px !important;
 }
 
 /* logica de kioscos */
@@ -851,8 +873,8 @@ header {
     modulo de atencion - B
  */
 
-.modal-seguridad .modal-content, .modal-playlist-youtube .modal-content, .modal-mensaje-alerta .modal-content, .modal-atencion-b .modal-content {
-  top: 120px !important;
+.modal-seguridad .modal-dialog, .modal-playlist-youtube .modal-dialog, .modal-mensaje-alerta .modal-dialog, .modal-atencion-b .modal-dialog {
+  top: 83px !important;
 }
 
 /* criterios de atencion */
@@ -865,13 +887,13 @@ header {
 
 /* modal logica */
 
-#modal_logica .w_15 {
+.modal_logica .w_15 {
   padding: 8px 4px !important;
 }
 
 /* modal supervision */
 
-#modal_supervision td {
+.modal_supervision td {
   border: 0;
   padding-bottom: 4px;
   padding-top: 4px !important;
@@ -1044,7 +1066,7 @@ header {
   }
 }
 
-#modal_estilos_2 .modal-body, #modal_estilos_6 .modal-body {
+.modal_estilos_2 .modal-body, .modal_estilos_6 .modal-body {
   max-height: none;
 }
 
@@ -1059,7 +1081,7 @@ header {
 }
 
 .modal-formatos {
-  .modal-content {
+  .modal-dialog {
     top: 0 !important;
   }
   .alto_bienvenida {

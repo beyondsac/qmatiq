@@ -1,4 +1,4 @@
-qmatiq.factory('userModel', ['$http', '$cookies' ,function($http, $cookies){
+qmatiq.factory('userModel', ['$http', '$cookies', 'URL', function($http, $cookies, URL){
 	var userModel = {};
 
 	userModel.doLogin = function(data){
@@ -6,7 +6,7 @@ qmatiq.factory('userModel', ['$http', '$cookies' ,function($http, $cookies){
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			url: 'http://api.qmatiq.piensamasalla.com/v1/usuarios/login',
+			url: URL+'usuarios/login',
 			method: 'POST',
 			data: {
 				login: 		data.login,
@@ -14,8 +14,8 @@ qmatiq.factory('userModel', ['$http', '$cookies' ,function($http, $cookies){
 				codigo:  	data.codigo
 			}
 		}).success(function(response){
-			console.log(response);
-			$cookies.put('auth', response);
+			//console.log(response);
+			$cookies.put('auth', JSON.stringify(response));
 		}).error(function(data, status, headers){
 			//console.log(data, status, headers);
 		});
@@ -28,6 +28,11 @@ qmatiq.factory('userModel', ['$http', '$cookies' ,function($http, $cookies){
 		}else{
 			return false;
 		}
+	};
+
+	userModel.getUserObject = function(){
+		var userObj = angular.fromJson($cookies.get('auth'));
+		return userObj;
 	};
 
 	userModel.doUserLogout = function(){

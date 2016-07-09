@@ -8303,6 +8303,26 @@ header {
 .navbar {
   border: 0; }
 
+.dropdown:hover {
+  background-color: #eeeeee; }
+
+.dropdown:hover .dropdown-menu {
+  display: block !important; }
+
+.dropdown_name {
+  display: block;
+  padding: 15px; }
+
+.dropdown,
+.dropdown-menu li {
+  padding: 0 !important; }
+
+.dropdown-toggle {
+  color: #3fb8c6 !important; }
+
+.dropdown-menu a {
+  padding: 0; }
+
 /* menu profile */
 .profile li {
   padding: 14px 5px; }
@@ -8432,14 +8452,14 @@ header {
 .table-select thead th.pl_0, .table-select tbody td.pl_0 {
   padding-left: 0 !important; }
 
-#modal_supervision thead th.pl_0, #modal_supervision tbody td.pl_0 {
+.modal_supervision thead th.pl_0, .modal_supervision tbody td.pl_0 {
   padding-left: 0 !important; }
 
-.table-select tbody tr:hover, #modal_logica tbody tr:hover {
+.table-select tbody tr:hover, .modal_logica tbody tr:hover {
   background-color: #e5edf0;
   cursor: pointer; }
 
-.table-select tbody tr:hover td, #modal_logica tbody tr:hover td {
+.table-select tbody tr:hover td, .modal_logica tbody tr:hover td {
   color: #4cbdca; }
 
 .table-select tbody tr:hover .none {
@@ -8480,55 +8500,55 @@ header {
   padding-top: 1px; }
 
 /* Modal */
-.modal-predeterminado .modal-content {
+.modal-predeterminado .modal-dialog {
   bottom: 0px;
-  top: 57px; }
+  top: 20px; }
 
-.modal-content {
-  /*position: fixed;*/
+.modal-dialog {
+  position: fixed;
   right: 15px; }
 
 .modal .modal-body {
   max-height: 572px;
   overflow-y: auto; }
 
-.modal-content table th {
+.modal-dialog table th {
   padding-bottom: 10px; }
 
-.modal-content table tbody tr:first-child td {
+.modal-dialog table tbody tr:first-child td {
   padding-top: 10px !important; }
 
 .modal-backdrop {
   /*background-color: transparent;*/ }
 
-#modal_roles thead {
+.modal_roles thead {
   display: block; }
-  #modal_roles thead th:first-child {
+  .modal_roles thead th:first-child {
     width: 182px; }
 
-#modal_roles tbody {
+.modal_roles tbody {
   display: block;
   height: 355px;
   overflow-y: auto;
   overflow-x: hidden; }
-  #modal_roles tbody tr:hover {
+  .modal_roles tbody tr:hover {
     background-color: #e5edf0;
     cursor: pointer; }
-  #modal_roles tbody td:first-child {
+  .modal_roles tbody td:first-child {
     width: 230px; }
 
-#modal_roles .modal-content table th {
+.modal_roles .modal-dialog table th {
   padding: 0 16px 0 0; }
-  #modal_roles .modal-content table th:first-child {
+  .modal_roles .modal-dialog table th:first-child {
     padding-right: 0; }
 
-#modal_roles .modal-content table td {
+.modal_roles .modal-dialog table td {
   padding: 0 16px 0 0; }
 
-#modal_roles .modal-content table thead th:last-child {
+.modal_roles .modal-dialog table thead th:last-child {
   padding-right: 0 !important; }
 
-#modal_roles .modal-content table td {
+.modal_roles .modal-dialog table td {
   border: 0 !important; }
 
 /* modal roles */
@@ -8536,8 +8556,8 @@ header {
     modal usuarios,
     modal criterios
  */
-.modal-usuarios .modal-content, .modal-criterios .modal-content {
-  top: 170px !important; }
+.modal-usuarios .modal-dialog, .modal-criterios .modal-dialog {
+  top: 133px !important; }
 
 /* logica de kioscos */
 .logica_iconos {
@@ -8562,8 +8582,8 @@ header {
     mensaje de alerta
     modulo de atencion - B
  */
-.modal-seguridad .modal-content, .modal-playlist-youtube .modal-content, .modal-mensaje-alerta .modal-content, .modal-atencion-b .modal-content {
-  top: 120px !important; }
+.modal-seguridad .modal-dialog, .modal-playlist-youtube .modal-dialog, .modal-mensaje-alerta .modal-dialog, .modal-atencion-b .modal-dialog {
+  top: 83px !important; }
 
 /* criterios de atencion */
 .scrolling_area {
@@ -8572,11 +8592,11 @@ header {
   overflow-y: auto; }
 
 /* modal logica */
-#modal_logica .w_15 {
+.modal_logica .w_15 {
   padding: 8px 4px !important; }
 
 /* modal supervision */
-#modal_supervision td {
+.modal_supervision td {
   border: 0;
   padding-bottom: 4px;
   padding-top: 4px !important; }
@@ -8707,7 +8727,7 @@ header {
     position: absolute;
     right: 0; }
 
-#modal_estilos_2 .modal-body, #modal_estilos_6 .modal-body {
+.modal_estilos_2 .modal-body, .modal_estilos_6 .modal-body {
   max-height: none; }
 
 /* estilos videos */
@@ -8717,7 +8737,7 @@ header {
 .imagen_estilos_videos {
   margin-top: -267px; }
 
-.modal-formatos .modal-content {
+.modal-formatos .modal-dialog {
   top: 0 !important; }
 
 .modal-formatos .alto_bienvenida {

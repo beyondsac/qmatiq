@@ -1,0 +1,95 @@
+<div ng-include="global.navHead"></div>
+<div ng-include="global.navUrl"></div>
+
+<div class="franja_top"></div>
+<div class="contenido">
+
+	<div class="container-fluid p_0">
+		<div class="col-lg-9 col-md-9 col-lg-offset-3 col-md-offset-3">
+			<div class="row">
+				<h1 class="fs_33 h_37_ThinC mt_30">
+					¿Qué <span class="fc_2bb673 h_47_LightC">Roles</span> tiene tu organización?
+				</h1>
+				<div class="col-lg-5 col-md-6 mt_10">
+					<div class="borde_total">
+						<div class="pull-right">
+							<button type="button" class="button" data-toggle='modal' data-target="#modal_roles" data-dismiss="modal">
+								<span class="h_47_LightC fs_15 fc_687a8b agregar">Agregar rol</span>
+								<i class="fa fa-plus-circle fc_2bb673 fs_23"></i>
+							</button>
+						</div>
+						<div class="row">
+							<div class="col-lg-12 col-md-12">
+							
+								<!--<div ng-include="listado"></div>-->
+								<table class="table table-responsive table-default table-select">
+									<thead class="h_Cond">
+										<tr>
+											<th class="borde_cabecera_tabla_azul"></th>
+											<th class="borde_cabecera_tabla_azul pl_0">Nombre del rol</th>
+											<th class="borde_cabecera_tabla" colspan="2"></th>
+										</tr>
+									</thead>
+									<tbody class="h_47_LightC fc_687a8b">
+										<tr ng-click="editModal()">											
+											<td></td>
+											<td class="fs_15 pl_0">Administración general</td>
+											<td class="fs_13 text-center">Qmatiq</td>
+											<td class="text-center"></td>
+										</tr>
+										<tr>											
+											<td></td>
+											<td class="fs_15 pl_0">Planificador</td>
+											<td class="fs_13 text-center">Qmatiq</td>
+											<td class="text-center"></td>
+										</tr>
+										<tr>											
+											<td></td>
+											<td class="fs_15 pl_0">Supervisor</td>
+											<td class="fs_13 text-center">Qmatiq</td>
+											<td class="text-center"><i class="fa fa-lock fc_596a7a fs_15"></i></td>
+										</tr>
+										<tr>											
+											<td></td>
+											<td class="fs_15 pl_0">Atención</td>
+											<td class="fs_13 text-center">Qmatiq</td>
+											<td class="text-center"></td>
+										</tr>
+										<tr>											
+											<td></td>
+											<td class="fs_15 pl_0">Dirección</td>
+											<td class="fs_13 text-center">Qmatiq</td>
+											<td class="text-center"></td>
+										</tr>
+										<tr>											
+											<td></td>
+											<td class="fs_15 pl_0">Supervisor de saturación</td>
+											<td class="fs_13 text-center"></td>
+											<td class="text-center"></td>
+										</tr>
+										<tr>											
+											<td></td>
+											<td class="fs_15 pl_0">Planificador lógico</td>
+											<td class="fs_13 text-center"></td>
+											<td class="text-center"></td>
+										</tr>
+										<tr>											
+											<td></td>
+											<td class="fs_15 pl_0">Seguridad</td>
+											<td class="fs_13 text-center"></td>
+											<td class="text-center"></td>
+										</tr>
+									</tbody>
+								</table>
+
+							</div>
+						</div>
+						<!--<div ng-include="modal"></div>-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<div class="franja_bottom"></div>

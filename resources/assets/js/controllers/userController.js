@@ -1,4 +1,9 @@
 qmatiq.controller('userController', ['$scope', '$location', 'userModel', function($scope, $location, userModel){
+	//variables
+	angular.extend($scope, {
+		login : {}
+	});
+	//metodos
 	angular.extend($scope, {
 		doLogin : function(loginForm){
 			var data = {
@@ -7,12 +12,8 @@ qmatiq.controller('userController', ['$scope', '$location', 'userModel', functio
 				codigo 	: $scope.login.codigo,
 			};
 			userModel.doLogin(data).then(function(){
-				$location.path('/dashboard');
+				$location.path('/home');
 			});
-		},
-		doLogout : function(){
-			userModel.doUserLogout();
-			$location.path('/');
 		}
 	});
 }]);

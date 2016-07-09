@@ -1,0 +1,18 @@
+<section class="sidebar pull-left" ng-controller="navController">
+    <nav class="navbar">
+        <ul class="nav nav-sidebar text-center">
+            <li ng-repeat="link in navUrl">
+                <a href="#{{link.url}}">
+                    <span ng-bind-html="link.ico"></span>
+                </a>
+                <ul class="nav nav-sidebar text-left h_47_LightC fs_15">
+                    <li ng-repeat="(key, subMenu) in link.subMenu" ng-class="ActiveLink(subMenu.url)">
+                        <a href="#{{subMenu.url}}" ng-class="LinkFirst(key)">{{ subMenu.link }} 
+                            <span ng-bind-html="subMenu.ico"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</section>
