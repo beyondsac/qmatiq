@@ -540,7 +540,27 @@ header {
     color: #8293a3;
   }
 }
-
+/* cargando */
+.cargando {
+  background-color: #000000;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0.3;
+  z-index: 1;
+  div {
+    color: #ffffff;
+    font-size: 80px;
+    position: fixed;
+    width: 430px;
+    height: 120px;
+    top: 50%;
+    left: 50%;
+    margin: -60px 0 0 -215px;
+  }
+}
 /* Logeo */
 
 .input_blanco {

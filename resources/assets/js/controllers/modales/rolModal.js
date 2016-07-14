@@ -15,4 +15,3 @@ qmatiq.controller('rolModal', ['$scope', '$uibModalInstance', 'UserModulos', 'mo
 
 	}
 ]);
-//# sourceMappingURL=modals.js.map

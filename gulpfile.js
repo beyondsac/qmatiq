@@ -29,13 +29,17 @@ elixir(function(mix) {
         //'./public/bower_components/angular-animate/angular-animate.min.js',
         './public/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
         //Jquery
-    	'global.js',
+    	//'global.js',
     	],'public/js/lib.js');
     
     //AngularJS
     mix.scripts([
         'app.js',
         ],'public/js/app.js');
+
+    /*mix.scripts([
+        'services/apiService.js',
+        ],'public/js/services.js');*/
 
     mix.scripts([
         'controllers/userController.js',
@@ -46,11 +50,13 @@ elixir(function(mix) {
         ],'public/js/controllers.js');
 
     mix.scripts([
-        'controllers/modales/RolesModal.js',
+        'controllers/modales/rolModal.js',
         ],'public/js/modals.js');
 
     mix.scripts([
         'models/userModel.js',
+        'models/rolModel.js',
+        'models/moduloModel.js',
         ],'public/js/models.js');
 
     mix.version([

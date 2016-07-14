@@ -2,18 +2,18 @@
 	<div class="logeo">		
 		<img src="./img/login/logo.png" alt="">
 		<div class="overflow mt_30 fs_20 h_47_Light_C text-left pl_15">
-			<form name="loginForm" ng-submit="doLogin(loginForm)" autocomplete="off">
+			<form name="loginForm" ng-submit="doLogin(loginForm)" autocomplete="off" novalidate>
 				<div class="overflow mb_5 form-group">
 					<i class="fa fa-user fc_ffffff w_20"></i>
-					<input type="text" name="login" class="input_blanco fs_15" placeholder="Usuario" ng-model="login.login">
+					<input type="text" name="login" class="input_blanco fs_15" placeholder="Usuario" ng-model="login.login" required>
 				</div>
 				<div class="overflow mb_5 form-group">
 					<i class="fa fa-lock fc_ffffff w_20"></i>
-					<input type="password" name="clave" class="input_blanco fs_15" placeholder="Contraseña" ng-model="login.clave">
+					<input type="password" name="clave" class="input_blanco fs_15" placeholder="Contraseña" ng-model="login.clave" required>
 				</div>
 				<div class="overflow form-group">
 					<i class="fa fa-shield fc_ffffff w_20"></i>
-					<input type="text" name="codigo" class="input_blanco fs_15 codigo_autenticidad" placeholder="Código de autenticidad" ng-model="login.codigo">
+					<input type="text" name="codigo" class="input_blanco fs_15 codigo_autenticidad" placeholder="Código de autenticidad" ng-model="login.codigo" required>
 					<button type="submit" class="button btn_logeo">
 						<i class="fa fa-arrow-circle-right fc_2bb673 fs_35"></i>
 					</button>
