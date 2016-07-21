@@ -143,11 +143,13 @@ qmatiq.controller('navController', ['$scope', '$location', function($scope, $loc
 	angular.extend($scope, {
 		ActiveLink: function(routeLink){
 			if($location.path() == routeLink){
-				//activando bloque de menu y submenu
-				var sidebar_active = angular.element('.sidebar .active');
-				sidebar_active.parent('ul').css({	display: 'block'	});
-				sidebar_active.parent('ul').parent('li').children('a').addClass('active');
 				return 'active';
+			}
+		},
+		ActiveLinkPadre: function(link){
+			var subMenu = $location.path().split('/',2);
+			if( link == '/'+subMenu[1] ){
+				return 'active_padre';
 			}
 		},
 		LinkFirst : function(key){
@@ -155,8 +157,5 @@ qmatiq.controller('navController', ['$scope', '$location', function($scope, $loc
 				return 'fs_18';
 			}
 		},
-		/*pre: function(e){
-			e.preventDefault();
-		}*/
 	});
 }]);

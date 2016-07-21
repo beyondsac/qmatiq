@@ -1,7 +1,7 @@
 <section class="sidebar pull-left" ng-controller="navController">
     <nav class="navbar">
         <ul class="nav nav-sidebar text-center">
-            <li ng-repeat="link in navUrl">
+            <li ng-repeat="link in navUrl" ng-class="ActiveLinkPadre(link.url)">
                 <a href="#{{link.url}}">
                     <span ng-bind-html="link.ico"></span>
                 </a>

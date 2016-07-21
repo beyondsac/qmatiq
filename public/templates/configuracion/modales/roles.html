@@ -1,36 +1,40 @@
-<div id="modal_roles">
+<div class="cargando_modal" ng-hide="showModal">
+	<div>Cargando...</div>
+</div>
+<div id="modal_roles" ng-show="showModal">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" ng-click="close()">&times;</button>
-		<div class="fc_7fd0d9 h_Cond fs_16">Editar Rol</div>
+		<div class="fc_7fd0d9 h_Cond fs_16" ng-bind="modalTitle" ng-init="modalTitle='Nuevo Rol'"></div>
 	</div>
 	<div class="modal-body">
-		<div class="fc_7fd0d9 h_Cond fs_15">Nombre del rol</div>
-		<input type="text" name="rol" id="rol"  class="fs_15 h_47_LightC input_gris w_100_por" >
-		<table class="table table-responsive mt_10">
-			<thead class="h_Cond">
-				<tr>
-					<th class="fc_7fd0d9 pl_0">Permisos</th>
-					<th class="cursor">Restablecer <i class="fa fa-undo"></i></th>
-				</tr>
-			</thead>
-			<tbody class="h_47_LightC 687a8b">
-
-				<tr ng-repeat="(key, modulo) in modulos">			
-					<td class="fc_687a8b fs_15">{{modulo.nombre}}</td>
-					<td class="text-right"><i class="fc_red check_disabled fa fa-square-o"></i></td>
-				</tr>
-				<!--
-				<tr>			
-					<td class="fc_687a8b fs_15">Video - Inserción de Playlist</td>
-					<td class="text-right"><i class="fa fa-check-square-o"></i></td>
-				</tr>
-				-->
-			</tbody>
-		</table>
-		<div class="text-center">
-			<button type="submit" class="submit">
-				<i class="fa fa-check-circle fs_90"></i>
-			</button>
-		</div>
+		<form name="rolesForm" ng-submit="doRoles(rolesForm, estadoForm)" autocomplete="off" novalidate>
+			<div class="fc_7fd0d9 h_Cond fs_15">Nombre del rol</div>
+			<input type="text"
+			ng-model="rol.nombre" required ng-minlength="5"
+			ng-init="rol.nombre=''"
+			class="fs_15 h_47_LightC input_gris w_100_por" >
+			<table class="table table-responsive mt_10">
+				<thead class="h_Cond">
+					<tr>
+						<th class="fc_7fd0d9 pl_0">Permisos</th>
+						<th class="cursor">Restablecer <i class="fa fa-undo"></i></th>
+					</tr>
+				</thead>
+				<tbody class="h_47_LightC 687a8b">
+					<tr ng-repeat="(key, permiso) in rol.permisos"
+						ng-click="changePermiso(key, permiso.acceso)">			
+						<td class="fc_687a8b fs_15">{{permiso.nombre}}</td>
+						<td class="text-right">
+							<i class="fa" ng-class="changeCheck(permiso.acceso)"></i>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="text-center">
+				<button type="submit" class="submit">
+					<i class="fa fa-check-circle fs_90"></i>
+				</button>
+			</div>
+		</form>
 	</div>
 </div>

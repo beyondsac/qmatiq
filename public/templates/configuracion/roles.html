@@ -1,14 +1,12 @@
 <div ng-include="global.navHead"></div>
 <div ng-include="global.navUrl"></div>
+<div ng-include="global.loading"></div>
 
 <div class="franja_top"></div>
 <div class="contenido">
 
 	<div class="container-fluid p_0">
 		<div class="col-lg-9 col-md-9 col-lg-offset-3 col-md-offset-3">
-			<div class="cargando" ng-hide="showRoles">
-				<div>Cargando...</div>
-			</div>
 			<div class="row" ng-show="showRoles">
 				<h1 class="fs_33 h_37_ThinC mt_30">
 					¿Qué <span class="fc_2bb673 h_47_LightC">Roles</span> tiene tu organización?
@@ -16,7 +14,7 @@
 				<div class="col-lg-5 col-md-6 mt_10">
 					<div class="borde_total">
 						<div class="pull-right">
-							<button type="button" class="button" data-toggle='modal' data-target="#modal_roles" data-dismiss="modal">
+							<button type="button" class="button" ng-click="newRol()">
 								<span class="h_47_LightC fs_15 fc_687a8b agregar">Agregar rol</span>
 								<i class="fa fa-plus-circle fc_2bb673 fs_23"></i>
 							</button>
@@ -24,21 +22,29 @@
 						<div class="row">
 							<div class="col-lg-12 col-md-12">
 							
-								<table class="table table-responsive table-default table-select">
+								<table class="table table-responsive table-default table-select tabla_listas_predeterminadas">
 									<thead class="h_Cond">
 										<tr>
-											<th class="borde_cabecera_tabla_azul"></th>
-											<th class="borde_cabecera_tabla_azul pl_0">Nombre del rol</th>
-											<th class="borde_cabecera_tabla" colspan="2"></th>
+											<th width="5%" class="borde_cabecera_tabla_azul"></th>
+											<th width="70%" class="borde_cabecera_tabla_azul pl_0">Nombre del rol</th>
+											<th width="25%" class="borde_cabecera_tabla"></th>
+											<th width="5%" class="borde_cabecera_tabla"></th>
 										</tr>
 									</thead>
 									<tbody class="h_47_LightC fc_687a8b">
-										<tr ng-repeat="(key, rol) in roles" ng-click="editRol(rol.id)">	
-											<td></td>
-											<td class="fs_15 pl_0">{{rol.nombre}}</td>
-											<td class="fs_13 text-center">Qmatiq</td>
+										<tr ng-repeat="(key, rol) in roles">	
+											<td width="5%" 
+												ng-click="editRol(rol.id)"></td>
+											<td width="70%" class="fs_15 pl_0" 
+												ng-click="editRol(rol.id)">{{rol.nombre}}</td>
+											<td width="5%" class="fs_13 text-center" 
+												ng-click="editRol(rol.id)" 
+												ng-bind="(rol.id<=9) ? 'Qmatiq' : ''"></td>
 											<td class="text-center">
-												<i class="fa fa-lock fc_596a7a fs_15"></i>
+												<i class="fa fa-lock fc_596a7a fs_15"
+													ng-show="rol.id<=9"></i>
+												<i class="fc_ed7d7d fa fa-times fs_15 none"
+													ng-hide="rol.id<=9" ng-click="deleteRol(key,rol.id)"></i>
 											</td>
 										</tr>
 									</tbody>

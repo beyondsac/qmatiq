@@ -530,6 +530,17 @@ header {
 .dropdown-menu a {
   padding: 0;
 }
+
+.active_padre{
+  > a{
+    background-color: #596a7a;
+    color: #fff !important;
+  }
+  ul{
+    display: block !important;
+  }
+}
+
 /* menu profile */
 
 .profile {
@@ -541,25 +552,41 @@ header {
   }
 }
 /* cargando */
-.cargando {
+
+.cargando_modal {
+  border-radius: 10px;
+}
+
+.cargando, .cargando_modal {
+  opacity: 0.1;
   background-color: #000000;
   position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
   right: 0;
-  opacity: 0.3;
   z-index: 1;
-  div {
-    color: #ffffff;
-    font-size: 80px;
-    position: fixed;
-    width: 430px;
-    height: 120px;
-    top: 50%;
-    left: 50%;
-    margin: -60px 0 0 -215px;
-  }
+}
+
+.cargando div, .cargando_modal div {
+  color: #ffffff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+.cargando div {
+  font-size: 80px;
+  width: 430px;
+  height: 120px;
+  margin: -60px 0 0 -215px;
+}
+
+.cargando_modal div {
+  font-size: 30px;
+  width: 165px;
+  height: 45px;
+  margin: -22.5px 0 0 -82.5px;
 }
 /* Logeo */
 
@@ -785,6 +812,18 @@ header {
 }
 
 /* Modal */
+.modal_delete .modal-dialog{
+  /*position: relative;*/
+  width: 300px;
+  height: 230px;
+  top: 50%;
+  left: 50%;
+  margin: -115px 0 0 -150px;
+}
+
+.modal-content,.modal-footer{
+  border: 0;
+}
 
 .modal-predeterminado .modal-dialog {
   bottom: 0px;
@@ -823,7 +862,7 @@ header {
   }
   tbody {
     display: block;
-    height: 355px;
+    height: 300px;
     overflow-y: auto;
     overflow-x: hidden;
     tr:hover {
@@ -853,6 +892,24 @@ header {
   }
 }
 
+/* tabla roles */
+.tabla_listas_predeterminadas thead,.tabla_listas_predeterminadas tbody{
+  display: block;
+}
+.tabla_listas_predeterminadas tbody{
+  height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  tr td{
+    border-top: 1px solid #ddd;
+  }
+  tr:first-child td{
+    border-top: 0 !important;
+  }
+  tr:first-child:hover td{
+    border-top: 0 !important;
+  }
+}
 /* modal roles */
 
 /* 
@@ -965,28 +1022,30 @@ header {
 
 .tab_predeterminado {
   background-color: #e5edf0;
-  border: 0;
   padding-bottom: 1px;
-  li {
-    &.active a {
-      background-color: #fff;
-      color: #7fd0d9 !important;
-    }
-    a {
-      &:hover, &:focus {
+  ul{
+    border: 0;
+    li {
+      &.active a {
         background-color: #fff;
         color: #7fd0d9 !important;
       }
+      a {
+        &:hover, &:focus {
+          background-color: #fff;
+          color: #7fd0d9 !important;
+        }
+      }
     }
-  }
-  a {
-    background-color: #e5edf0;
-    border: 0 !important;
-    border-radius: 0 !important;
-    color: #8293a3;
-    margin: 0 !important;
-    padding-left: 20px;
-    padding-right: 20px;
+    a {
+      background-color: #e5edf0;
+      border: 0 !important;
+      border-radius: 0 !important;
+      color: #8293a3;
+      margin: 0 !important;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
 }
 

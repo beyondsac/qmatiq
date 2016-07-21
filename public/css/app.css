@@ -8323,6 +8323,13 @@ header {
 .dropdown-menu a {
   padding: 0; }
 
+.active_padre > a {
+  background-color: #596a7a;
+  color: #fff !important; }
+
+.active_padre ul {
+  display: block !important; }
+
 /* menu profile */
 .profile li {
   padding: 14px 5px; }
@@ -8331,24 +8338,36 @@ header {
   color: #8293a3; }
 
 /* cargando */
-.cargando {
+.cargando_modal {
+  border-radius: 10px; }
+
+.cargando, .cargando_modal {
+  opacity: 0.1;
   background-color: #000000;
   position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
   right: 0;
-  opacity: 0.3;
   z-index: 1; }
-  .cargando div {
-    color: #ffffff;
-    font-size: 80px;
-    position: fixed;
-    width: 430px;
-    height: 120px;
-    top: 50%;
-    left: 50%;
-    margin: -60px 0 0 -215px; }
+
+.cargando div, .cargando_modal div {
+  color: #ffffff;
+  position: fixed;
+  top: 50%;
+  left: 50%; }
+
+.cargando div {
+  font-size: 80px;
+  width: 430px;
+  height: 120px;
+  margin: -60px 0 0 -215px; }
+
+.cargando_modal div {
+  font-size: 30px;
+  width: 165px;
+  height: 45px;
+  margin: -22.5px 0 0 -82.5px; }
 
 /* Logeo */
 .input_blanco {
@@ -8520,6 +8539,17 @@ header {
   padding-top: 1px; }
 
 /* Modal */
+.modal_delete .modal-dialog {
+  /*position: relative;*/
+  width: 300px;
+  height: 230px;
+  top: 50%;
+  left: 50%;
+  margin: -115px 0 0 -150px; }
+
+.modal-content, .modal-footer {
+  border: 0; }
+
 .modal-predeterminado .modal-dialog {
   bottom: 0px;
   top: 20px; }
@@ -8548,7 +8578,7 @@ header {
 
 .modal_roles tbody {
   display: block;
-  height: 355px;
+  height: 300px;
   overflow-y: auto;
   overflow-x: hidden; }
   .modal_roles tbody tr:hover {
@@ -8570,6 +8600,21 @@ header {
 
 .modal_roles .modal-dialog table td {
   border: 0 !important; }
+
+/* tabla roles */
+.tabla_listas_predeterminadas thead, .tabla_listas_predeterminadas tbody {
+  display: block; }
+
+.tabla_listas_predeterminadas tbody {
+  height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden; }
+  .tabla_listas_predeterminadas tbody tr td {
+    border-top: 1px solid #ddd; }
+  .tabla_listas_predeterminadas tbody tr:first-child td {
+    border-top: 0 !important; }
+  .tabla_listas_predeterminadas tbody tr:first-child:hover td {
+    border-top: 0 !important; }
 
 /* modal roles */
 /* 
@@ -8657,22 +8702,23 @@ header {
 /* Tabs */
 .tab_predeterminado {
   background-color: #e5edf0;
-  border: 0;
   padding-bottom: 1px; }
-  .tab_predeterminado li.active a {
-    background-color: #fff;
-    color: #7fd0d9 !important; }
-  .tab_predeterminado li a:hover, .tab_predeterminado li a:focus {
-    background-color: #fff;
-    color: #7fd0d9 !important; }
-  .tab_predeterminado a {
-    background-color: #e5edf0;
-    border: 0 !important;
-    border-radius: 0 !important;
-    color: #8293a3;
-    margin: 0 !important;
-    padding-left: 20px;
-    padding-right: 20px; }
+  .tab_predeterminado ul {
+    border: 0; }
+    .tab_predeterminado ul li.active a {
+      background-color: #fff;
+      color: #7fd0d9 !important; }
+    .tab_predeterminado ul li a:hover, .tab_predeterminado ul li a:focus {
+      background-color: #fff;
+      color: #7fd0d9 !important; }
+    .tab_predeterminado ul a {
+      background-color: #e5edf0;
+      border: 0 !important;
+      border-radius: 0 !important;
+      color: #8293a3;
+      margin: 0 !important;
+      padding-left: 20px;
+      padding-right: 20px; }
 
 .tab_estilos {
   margin-top: 241px; }

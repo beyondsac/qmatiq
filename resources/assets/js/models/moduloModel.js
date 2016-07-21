@@ -1,7 +1,5 @@
 qmatiq.factory('moduloModel', ['$http', 'URL', function($http, URL){
-	return {
-		getAll : function(){
-			return $http.get(URL+'modulos');
-		},
-	};
+	var moduloModel = {};
+
+	return moduloModel;
 }])

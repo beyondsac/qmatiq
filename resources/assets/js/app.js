@@ -4,18 +4,18 @@ qmatiq.config(['$routeProvider', '$locationProvider',
 	function($routeProvider, $locationProvider){
 		$routeProvider.when('/',{
 			templateUrl : 'templates/users/login.html',
-			controller: 'userController',
+			controller: 'loginController',
 		});
 
 		$routeProvider.when('/home',{
 			templateUrl : 'templates/users/home.html',
-			controller: 'userController',
+			controller: 'homeController',
 			authenticated: true
 		});
 		//Configuración
 		$routeProvider.when('/configuracion',{
 			templateUrl : 'templates/configuracion/index.html',
-			controller: 'userController',
+			controller: 'configuracionController',
 			authenticated: true
 		});
 
@@ -26,148 +26,149 @@ qmatiq.config(['$routeProvider', '$locationProvider',
 		});
 
 		$routeProvider.when('/configuracion/usuarios',{
-			templateUrl : 'templates/configuracion/index.html',
-			controller: 'userController',
+			templateUrl : 'templates/configuracion/usuarios.html',
+			controller: 'usuariosController',
 			authenticated: true
 		});
 
 		$routeProvider.when('/configuracion/logica_de_kioscos',{
-			templateUrl : 'templates/configuracion/index.html',
-			controller: 'userController',
+			templateUrl : 'templates/configuracion/logica_de_kioscos.html',
+			controller: 'logicakioscosController',
 			authenticated: true
 		});
 
 		$routeProvider.when('/configuracion/estilos',{
-			templateUrl : 'templates/configuracion/index.html',
-			controller: 'userController',
+			templateUrl : 'templates/configuracion/estilos.html',
+			controller: 'estilosController',
 			authenticated: true
 		});
 
 		$routeProvider.when('/configuracion/seguridad',{
-			templateUrl : 'templates/configuracion/index.html',
-			controller: 'userController',
+			templateUrl : 'templates/configuracion/seguridad.html',
+			controller: 'seguridadController',
 			authenticated: true
 		});
 
 		$routeProvider.when('/configuracion/peticiones_de_acceso',{
-			templateUrl : 'templates/configuracion/index.html',
-			controller: 'userController',
+			templateUrl : 'templates/configuracion/peticiones_de_acceso.html',
+			controller: 'peticionesController',
 			authenticated: true
 		});
 		//Planificacion
 		$routeProvider.when('/planificacion',{
 			templateUrl : 'templates/planificacion/index.html',
-			controller: 'userController',
+			controller: 'planificacionController',
 			authenticated: true
 		});
 
-		$routeProvider.when('/planificacion/grupo_de_atencion',{
+		$routeProvider.when('/planificacion/grupos_de_atencion',{
 			templateUrl : 'templates/planificacion/grupo_de_atencion.html',
-			controller: 'userController',
+			controller: 'gruposController',
 			authenticated: true
 		});
 
 		$routeProvider.when('/planificacion/clientes_y_jerarquias',{
 			templateUrl : 'templates/planificacion/clientes_y_jerarquias.html',
-			controller: 'userController',
+			controller: 'clientesController',
 			authenticated: true
 		});
 
 		$routeProvider.when('/planificacion/locales_kioscos',{
 			templateUrl : 'templates/planificacion/locales_kioscos.html',
-			controller: 'userController',
+			controller: 'localeskioscosController',
 			authenticated: true
 		});
 
 		$routeProvider.when('/planificacion/logica',{
 			templateUrl : 'templates/planificacion/logica.html',
-			controller: 'userController',
+			controller: 'logicaController',
 			authenticated: true
 		});
 		//Video
 		$routeProvider.when('/video',{
 			templateUrl : 'templates/video/index.html',
-			controller: 'userController',
+			controller: 'videoController',
 			authenticated: true
 		});
 
 		$routeProvider.when('/video/playlist_locales',{
 			templateUrl : 'templates/video/playlist_locales.html',
-			controller: 'userController',
+			controller: 'playlocalesController',
 			authenticated: true
 		});
 
 		$routeProvider.when('/video/playlist_de_youtube',{
 			templateUrl : 'templates/video/playlist_de_youtube.html',
-			controller: 'userController',
+			controller: 'playyoutubeController',
 			authenticated: true
 		});
 		//Atencion
 		$routeProvider.when('/atencion',{
 			templateUrl : 'templates/atencion/index.html',
-			controller: 'userController',
+			controller: 'atencionController',
 			authenticated: true
 		});
 
 		$routeProvider.when('/atencion/modulo_de_atencion',{
 			templateUrl : 'templates/atencion/modulo_de_atencion.html',
-			controller: 'userController',
+			controller: 'moduloController',
 			authenticated: true
 		});
 
 		$routeProvider.when('/atencion/supervision',{
 			templateUrl : 'templates/atencion/supervision.html',
-			controller: 'userController',
+			controller: 'supervisionController',
 			authenticated: true
 		});
 
 		$routeProvider.when('/atencion/criterios_de_atencion',{
 			templateUrl : 'templates/atencion/criterios_de_atencion.html',
-			controller: 'userController',
+			controller: 'criteriosController',
 			authenticated: true
 		});
 
 		$routeProvider.when('/atencion/mensajes_de_alerta',{
 			templateUrl : 'templates/atencion/mensajes_de_alerta.html',
-			controller: 'userController',
+			controller: 'mensajesController',
 			authenticated: true
 		});
 		//reportes
 		$routeProvider.when('/reportes',{
 			templateUrl : 'templates/reportes/index.html',
-			controller: 'userController',
+			controller: 'reportesController',
 			authenticated: true
 		});
 
 		$routeProvider.when('/reportes/alcance_de_turnos',{
-			templateUrl : 'templates/reportes/alcance_de_turnos.html',
-			controller: 'userController',
+			templateUrl : 'templates/reportes/alcance.html',
+			controller: 'alcanceController',
 			authenticated: true
 		});
 
-		$routeProvider.when('/reportes/origen_de_turnos',{
-			templateUrl : 'templates/reportes/origen_de_turnos.html',
-			controller: 'userController',
+		$routeProvider.when('/reportes/origen_de_los_turnos',{
+			templateUrl : 'templates/reportes/origen.html',
+			controller: 'origenController',
 			authenticated: true
 		});
 
 		$routeProvider.when('/reportes/promedio_de_atencion',{
-			templateUrl : 'templates/reportes/promedio_de_atencion.html',
-			controller: 'userController',
+			templateUrl : 'templates/reportes/promedio.html',
+			controller: 'promedioController',
 			authenticated: true
 		});
 
 		$routeProvider.when('/reportes/frecuencia_por_tramite',{
-			templateUrl : 'templates/reportes/frecuencia_por_tramite.html',
-			controller: 'userController',
+			templateUrl : 'templates/reportes/frecuencia.html',
+			controller: 'frecuenciaController',
 			authenticated: true
 		});
 
 		$routeProvider.when('/reportes/saturacion',{
 			templateUrl : 'templates/reportes/saturacion.html',
-			controller: 'userController',
+			controller: 'saturacionController',
 			authenticated: true
 		});
+
 		//Otros
 		$routeProvider.otherwise('/');
 	}
