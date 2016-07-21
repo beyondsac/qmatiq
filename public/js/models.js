@@ -69,14 +69,7 @@ qmatiq.factory('rolModel', [ '$http', 'URL', function($http, URL){
 	};
 
 	rolModel.putRol = function(id, data){
-		return $http({
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			url : URL+'roles/'+id,
-			method : 'PUT',
-			data : data
-		});
+		return $http.put(URL+'roles/'+id, data);
 	};
 
 	rolModel.deleteRol = function(id){
