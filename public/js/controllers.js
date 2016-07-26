@@ -22,15 +22,28 @@ qmatiq.controller('loginController', ['$scope', '$location', 'userModel',
 		});
 	}
 ]);
-qmatiq.controller('globalController', ['$scope', '$location', function($scope, $location){
-	$scope.global = {};
-	$scope.global.navHead = 'templates/partials/nav_header.html';
-	$scope.global.navUrl = 'templates/partials/nav_sidebar.html';
-	$scope.global.loading = 'templates/partials/cargando.html';
-	//cambiando encabezados de paginas
-	$scope.nameProject = 'Qmatiq - ';
-	
-}]);
+qmatiq.controller('globalController', ['$scope', '$location', '$q', 'listServices',
+	function($scope, $location, $q, listServices){
+		$scope.global = {};
+		$scope.global.navHead 	= 'templates/partials/nav_header.html';
+		$scope.global.navUrl 	= 'templates/partials/nav_sidebar.html';
+		$scope.global.loading 	= 'templates/partials/cargando.html';
+		//cambiando encabezados de paginas
+		$scope.nameProject = 'Qmatiq - ';
+		//Cargando todas las listas
+		$q.all(
+			[
+				listServices.getRolAll(),
+				listServices.getUsuarioAll()
+			]
+		).then(function(response){
+			$scope.roles 		= response[0].data.data;
+			$scope.usuarios 	= response[1].data.data;
+			$scope.showCargando = true;
+			//$scope.showRoles = true;
+		});
+	}
+]);
 qmatiq.controller('headController', ['$scope', '$location', 'userModel', function($scope, $location, userModel){
 	//variables
 	angular.extend($scope, {
@@ -222,13 +235,6 @@ qmatiq.controller('rolesController', ['$scope', '$uibModal', 'rolModel',
 	function($scope, $uibModal, rolModel){
 		//cambiando el titulo de pagina
 		$scope.$parent.headTitulo = $scope.$parent.nameProject + 'Roles';
-		//Muestra todos los roles
-		rolModel.getAll().success(function(response){
-			$scope.roles = response.data;
-			$scope.showCargando = true;
-			$scope.showRoles = true;
-		});
-
 		//Metodos
 		angular.extend( $scope, {
 			editRol: function(id){
@@ -246,20 +252,24 @@ qmatiq.controller('rolesController', ['$scope', '$uibModal', 'rolModel',
 					templateUrl: 'templates/modales/delete.html',
 					controller : 'deleteModal',
 					windowClass: 'modal_delete',
-					size: 'sm'
+					size: 'md',
+					resolve: {
+						Item: function(){
+							return 'rol';
+						}
+					}
 				});
 
 				modalInstance.result.then(function(responseClose){
 					rolModel.deleteRol(id).success(function(response){
-						//eliminando un registro de la tabla
-						$scope.roles.splice(index,1);
+						$scope.$parent.roles.splice(index,1);
 					});
 				});
 			},
 			update: function(modalInstance){
 				modalInstance.result.then(function(responseClose){
 					rolModel.getAll().success(function(response){
-						$scope.roles = response.data;
+						$scope.$parent.roles = response.data;
 					});
 				});
 			},
@@ -279,12 +289,64 @@ qmatiq.controller('rolesController', ['$scope', '$uibModal', 'rolModel',
 		});
 	}
 ]);
-qmatiq.controller('usuariosController', ['$scope', function($scope){
-	//cambiando el titulo de pagina
-	$scope.$parent.headTitulo = $scope.$parent.nameProject + 'Usuarios';
-	//quitando el show Cargando
-	$scope.showCargando = true;
-}]);
+qmatiq.controller('usuariosController', ['$scope', '$uibModal', 'usuarioModel', 
+	function($scope, $uibModal, usuarioModel){
+		//cambiando el titulo de pagina
+		$scope.$parent.headTitulo = $scope.$parent.nameProject + 'Usuarios';//Metodos
+
+		angular.extend( $scope, {
+			edit: function(id){
+				if(id != 3){
+					var modalInstance = $uibModal.open( $scope.templates(id) );
+					$scope.update(modalInstance);
+				}
+			},
+			new: function(){
+				var modalInstance = $uibModal.open( $scope.templates(0) );
+				$scope.update(modalInstance);
+			},
+			delete: function(index, id){
+				var modalInstance = $uibModal.open( {
+					templateUrl: 'templates/modales/delete.html',
+					controller : 'deleteModal',
+					windowClass: 'modal_delete',
+					size: 'md',
+					resolve: {
+						Item: function(){
+							return 'usuario';
+						}
+					}
+				});
+
+				modalInstance.result.then(function(responseClose){
+					usuarioModel.delete(id).success(function(response){
+						$scope.$parent.usuarios.splice(index,1);
+					});
+				});
+			},
+			update: function(modalInstance){
+				modalInstance.result.then(function(responseClose){
+					usuarioModel.getAll().success(function(response){
+						$scope.$parent.usuarios = response.data;
+					});
+				});
+			},
+			templates: function(id){
+				return templates = {
+					templateUrl: 'templates/configuracion/modales/usuarios.html',
+					controller: 'usuarioModal',
+					windowClass: 'modal_listas_check modal-predeterminado',
+					size: 'sm',
+					resolve: {
+						Item: function(){
+							return id;
+						}
+					}
+				}
+			}
+		});
+	}
+]);
 qmatiq.controller('logicakioscosController', ['$scope', function($scope){
 	//cambiando el titulo de pagina
 	$scope.$parent.headTitulo = $scope.$parent.nameProject + 'Lógica de kioscos';

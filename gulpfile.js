@@ -18,6 +18,11 @@ elixir(function(mix) {
         'font.scss',
         'global.scss']);
 
+    /*mix.styles([
+        './public/css/app.css',
+        './public/bower_components/bootstrap-multiselect/dist/css/bootstrap-multiselect.css'
+        ],'public/css/app.css');*/
+
     mix.scripts([
         //Librerias
         './public/bower_components/jquery/dist/jquery.min.js',
@@ -27,6 +32,7 @@ elixir(function(mix) {
     	'./public/bower_components/angular-cookies/angular-cookies.min.js',
         './public/bower_components/angular-sanitize/angular-sanitize.min.js',
         './public/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+        //'./public/bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js',
         //Jquery
     	],'public/js/lib.js');
     
@@ -76,6 +82,7 @@ elixir(function(mix) {
 
     mix.scripts([
         'controllers/modales/rolModal.js',
+        'controllers/modales/usuarioModal.js',
         //generales
         'controllers/modales/deleteModal.js',
         ],'public/js/modals.js');
@@ -83,12 +90,20 @@ elixir(function(mix) {
     mix.scripts([
         'models/userModel.js',
         'models/rolModel.js',
+        'models/usuarioModel.js',
+        'models/localModel.js',
         'models/moduloModel.js',
         ],'public/js/models.js');
+
+    mix.scripts([
+        'services/listServices.js',
+        'services/recursos.js',
+        ],'public/js/services.js');
 
     mix.version([
         'js/lib.js',
         'js/app.js',
+        'js/services.js',
         'js/models.js',
         'js/controllers.js',
         'js/modals.js',]);

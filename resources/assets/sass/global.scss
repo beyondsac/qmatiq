@@ -80,6 +80,9 @@ a {
 }
 
 /* bordes */
+.br_1{
+   border-right: 1px solid #e3e6eb;
+}
 
 .borde_total {
   background-color: #fff;
@@ -362,9 +365,12 @@ a {
 }
 
 /* margin - padding */
-
 .m_0 {
   margin: 0;
+}
+
+.mt_0 {
+  margin-top: 0;
 }
 
 .mt_3 {
@@ -455,6 +461,10 @@ a {
   margin-top: -20px;
 }
 
+.mr_20 {
+  margin-right: 20px;
+}
+
 .mr_30 {
   margin-right: 30px;
 }
@@ -479,8 +489,8 @@ a {
   padding-right: 15px;
 }
 
-.pr_35 {
-  padding-right: 35px;
+.pr_20{
+  padding-right: 20px;
 }
 
 .pl_10 {
@@ -491,6 +501,9 @@ a {
   padding-left: 15px;
 }
 
+.pb_23 {
+  padding-bottom: 23px;
+}
 /* orientacion */
 /* Header */
 
@@ -717,7 +730,20 @@ header {
   background-color: #F3F4F8;
   padding-top: 58px;
 }
+/* tabla */
+.tabla_cabecera{
+  position: relative;
+}
 
+.tabla_detalle{
+  margin-top: -1px;
+  overflow-y: auto;
+}
+
+.tabla_detalle_usuarios{
+  min-height: auto;
+  max-height: 380px;
+}
 /* Formularios */
 
 .agregar {
@@ -814,11 +840,11 @@ header {
 /* Modal */
 .modal_delete .modal-dialog{
   /*position: relative;*/
-  width: 300px;
-  height: 230px;
+  width: 600px;
+  height: 186px;
   top: 50%;
   left: 50%;
-  margin: -115px 0 0 -150px;
+  margin: -93px 0 0 -300px;
 }
 
 .modal-content,.modal-footer{
@@ -892,6 +918,28 @@ header {
   }
 }
 
+.modal_listas_check{
+  table{
+    border: 0 ;
+    tr{
+      &:hover {
+        background: transparent !important;
+        td{
+          border-top: 1px solid #fff !important; 
+          border-bottom: 1px solid #fff !important; 
+        }
+      }
+    }
+    td{
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+  }
+}
+.tabla_modal_usuarios{
+  min-height: auto;
+  max-height: 200px;
+}
 /* tabla roles */
 .tabla_listas_predeterminadas thead,.tabla_listas_predeterminadas tbody{
   display: block;
@@ -913,11 +961,10 @@ header {
 /* modal roles */
 
 /* 
-    modal usuarios,
     modal criterios
  */
 
-.modal-usuarios .modal-dialog, .modal-criterios .modal-dialog {
+.modal-criterios .modal-dialog {
   top: 133px !important;
 }
 

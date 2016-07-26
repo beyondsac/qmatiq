@@ -7985,6 +7985,9 @@ a {
   padding-right: 2px; }
 
 /* bordes */
+.br_1 {
+  border-right: 1px solid #e3e6eb; }
+
 .borde_total {
   background-color: #fff;
   border: 1px solid #e3e6eb;
@@ -8197,6 +8200,9 @@ a {
 .m_0 {
   margin: 0; }
 
+.mt_0 {
+  margin-top: 0; }
+
 .mt_3 {
   margin-top: 3px; }
 
@@ -8263,6 +8269,9 @@ a {
 .mt_m20 {
   margin-top: -20px; }
 
+.mr_20 {
+  margin-right: 20px; }
+
 .mr_30 {
   margin-right: 30px; }
 
@@ -8281,14 +8290,17 @@ a {
 .pr_15 {
   padding-right: 15px; }
 
-.pr_35 {
-  padding-right: 35px; }
+.pr_20 {
+  padding-right: 20px; }
 
 .pl_10 {
   padding-left: 10px; }
 
 .pl_15 {
   padding-left: 15px; }
+
+.pb_23 {
+  padding-bottom: 23px; }
 
 /* orientacion */
 /* Header */
@@ -8470,6 +8482,18 @@ header {
   background-color: #F3F4F8;
   padding-top: 58px; }
 
+/* tabla */
+.tabla_cabecera {
+  position: relative; }
+
+.tabla_detalle {
+  margin-top: -1px;
+  overflow-y: auto; }
+
+.tabla_detalle_usuarios {
+  min-height: auto;
+  max-height: 380px; }
+
 /* Formularios */
 .agregar {
   float: left;
@@ -8541,11 +8565,11 @@ header {
 /* Modal */
 .modal_delete .modal-dialog {
   /*position: relative;*/
-  width: 300px;
-  height: 230px;
+  width: 600px;
+  height: 186px;
   top: 50%;
   left: 50%;
-  margin: -115px 0 0 -150px; }
+  margin: -93px 0 0 -300px; }
 
 .modal-content, .modal-footer {
   border: 0; }
@@ -8601,6 +8625,21 @@ header {
 .modal_roles .modal-dialog table td {
   border: 0 !important; }
 
+.modal_listas_check table {
+  border: 0; }
+  .modal_listas_check table tr:hover {
+    background: transparent !important; }
+    .modal_listas_check table tr:hover td {
+      border-top: 1px solid #fff !important;
+      border-bottom: 1px solid #fff !important; }
+  .modal_listas_check table td {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important; }
+
+.tabla_modal_usuarios {
+  min-height: auto;
+  max-height: 200px; }
+
 /* tabla roles */
 .tabla_listas_predeterminadas thead, .tabla_listas_predeterminadas tbody {
   display: block; }
@@ -8618,10 +8657,9 @@ header {
 
 /* modal roles */
 /* 
-    modal usuarios,
     modal criterios
  */
-.modal-usuarios .modal-dialog, .modal-criterios .modal-dialog {
+.modal-criterios .modal-dialog {
   top: 133px !important; }
 
 /* logica de kioscos */

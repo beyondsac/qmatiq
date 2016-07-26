@@ -1,5 +1,6 @@
-qmatiq.controller('deleteModal', ['$scope', '$uibModalInstance',
-	function($scope, $uibModalInstance){
+qmatiq.controller('deleteModal', ['$scope', '$uibModalInstance', 'Item',
+	function($scope, $uibModalInstance, Item){
+		$scope.nombre = Item;
 		//metodos
 		angular.extend($scope, {
 			close: function(){

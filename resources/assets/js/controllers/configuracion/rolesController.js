@@ -2,13 +2,6 @@ qmatiq.controller('rolesController', ['$scope', '$uibModal', 'rolModel',
 	function($scope, $uibModal, rolModel){
 		//cambiando el titulo de pagina
 		$scope.$parent.headTitulo = $scope.$parent.nameProject + 'Roles';
-		//Muestra todos los roles
-		rolModel.getAll().success(function(response){
-			$scope.roles = response.data;
-			$scope.showCargando = true;
-			$scope.showRoles = true;
-		});
-
 		//Metodos
 		angular.extend( $scope, {
 			editRol: function(id){
@@ -26,20 +19,24 @@ qmatiq.controller('rolesController', ['$scope', '$uibModal', 'rolModel',
 					templateUrl: 'templates/modales/delete.html',
 					controller : 'deleteModal',
 					windowClass: 'modal_delete',
-					size: 'sm'
+					size: 'md',
+					resolve: {
+						Item: function(){
+							return 'rol';
+						}
+					}
 				});
 
 				modalInstance.result.then(function(responseClose){
 					rolModel.deleteRol(id).success(function(response){
-						//eliminando un registro de la tabla
-						$scope.roles.splice(index,1);
+						$scope.$parent.roles.splice(index,1);
 					});
 				});
 			},
 			update: function(modalInstance){
 				modalInstance.result.then(function(responseClose){
 					rolModel.getAll().success(function(response){
-						$scope.roles = response.data;
+						$scope.$parent.roles = response.data;
 					});
 				});
 			},

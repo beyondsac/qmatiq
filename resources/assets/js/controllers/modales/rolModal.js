@@ -1,6 +1,6 @@
-qmatiq.controller('rolModal', ['$scope', '$uibModalInstance', 'rolModel', 'Item', '$timeout',
-	function($scope, $uibModalInstance, rolModel, Item, $timeout){
-		//variables
+qmatiq.controller('rolModal', ['$scope', '$uibModalInstance', 'Item', 'rolModel', 'recursos',
+	function($scope, $uibModalInstance, Item, rolModel, recursos){
+		//variables angularjs
 		angular.extend($scope,{
 			rol: {},
 			permiso: {},
@@ -12,34 +12,22 @@ qmatiq.controller('rolModal', ['$scope', '$uibModalInstance', 'rolModel', 'Item'
 			//cargando nombre de rol
 			if(Item != 0){ 
 				rolModel.getRol(Item).success(function(responseNombre){
-					//$timeout(function(){
-						$scope.modalTitle = 'Editar Rol';
-						$scope.rol.nombre = responseNombre.data.nombre;
-						$scope.showModal = true;
-					//},3000);
+					$scope.modalTitle 	= 'Editar Rol';
+					$scope.rol.nombre 	= responseNombre.data.nombre;
+					$scope.showModal 	= true;
 				});
 			}else{
-				//$timeout(function(){
-					$scope.showModal = true;
-				//},3000);
+				$scope.showModal = true;
 			}
 		});
 		
 		//metodos
 		angular.extend($scope, {
 			changeCheck: function(acceso){
-				if(acceso == 0){
-					return 'fc_red check_disabled fa-square-o';
-				}else{
-					return 'fa-check-square-o';
-				}
+				return recursos.changeCheck(acceso);
 			},
 			changePermiso: function(key, acceso){
-				if(acceso == 0){
-					$scope.rol.permisos[key]['acceso'] = 1;
-				}else{
-					$scope.rol.permisos[key]['acceso'] = 0;
-				}
+				return $scope.rol.permisos[key]['acceso'] = recursos.changeAcceso(acceso);
 			},
 			doRoles: function(rolesFom, estadoForm){
 				var modulos = rolModel.prepararArrayModulos($scope.rol.permisos);
@@ -61,7 +49,7 @@ qmatiq.controller('rolModal', ['$scope', '$uibModalInstance', 'rolModel', 'Item'
 					rolModel.putRol(Item, data).success(function(response){
 						$uibModalInstance.close(true);
 					});
-				}
+				};
 			},
 			close: function(){
 				$uibModalInstance.dismiss('cancel');

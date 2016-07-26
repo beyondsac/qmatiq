@@ -1,7 +1,8 @@
 {
   "js/app.js": "js/app-ca7f48761b.js",
-  "js/controllers.js": "js/controllers-ca7afde4f8.js",
+  "js/controllers.js": "js/controllers-83fa495b6f.js",
   "js/lib.js": "js/lib-ecc040e6ad.js",
-  "js/modals.js": "js/modals-6268412555.js",
-  "js/models.js": "js/models-ac29b44916.js"
+  "js/modals.js": "js/modals-07e0ff227f.js",
+  "js/models.js": "js/models-be9c893364.js",
+  "js/services.js": "js/services-e187efa7ef.js"
 }
