@@ -1,13 +1,21 @@
-qmatiq.service('listServices', ['$http', 'URL', function($http, URL){
+qmatiq.service('listServices', ['$http', 'constante', function($http, constante){
 	this.getRolAll = function(){
-		return $http.get(URL+'cuentas/1/roles');
+		return $http.get(constante.URL+'cuentas/'+constante.cuenta_id+'/roles');
 	};
 
 	this.getUsuarioAll = function(){
-		return $http.get(URL+'cuentas/1/usuarios');
+		return $http.get(constante.URL+'cuentas/'+constante.cuenta_id+'/usuarios');
+	};
+
+	this.getLocalAll = function(){
+		return $http.get(constante.URL+'cuentas/'+constante.cuenta_id+'/locales');
+	};
+
+	this.getConfiguracionAll = function(){
+		return $http.get(constante.URL+'cuentas/'+constante.cuenta_id+'/configuracion');
 	};
 }]);
-qmatiq.service('recursos', ['$http', 'URL', function($http, URL){
+qmatiq.service('recursos', [ function(){
 	this.changeCheck =  function(acceso){
 		if(acceso == 0){
 			return 'fc_red check_disabled fa-square-o';

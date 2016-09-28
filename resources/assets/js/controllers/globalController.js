@@ -10,13 +10,21 @@ qmatiq.controller('globalController', ['$scope', '$location', '$q', 'listService
 		$q.all(
 			[
 				listServices.getRolAll(),
-				listServices.getUsuarioAll()
+				listServices.getUsuarioAll(),
+				listServices.getLocalAll(),
+				listServices.getConfiguracionAll(),
 			]
 		).then(function(response){
-			$scope.roles 		= response[0].data.data;
-			$scope.usuarios 	= response[1].data.data;
-			$scope.showCargando = true;
-			//$scope.showRoles = true;
+			$scope.roles 				= response[0].data.data;
+			$scope.usuarios 			= response[1].data.data;
+			$scope.locales 				= response[2].data.data;
+			$scope.configuraciones 		= response[3].data.data;
+			//combobox locales - usuarios
+			$scope.selectedLocal = 0;
+			//deshabilitando cargadores
+			$scope.cargando 				= 'Cargando ...';
+			$scope.showCargando 			= true;
+			$scope.showCargandoUsuarios 	= true;
 		});
 	}
 ]);

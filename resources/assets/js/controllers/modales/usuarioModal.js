@@ -1,5 +1,5 @@
-qmatiq.controller('usuarioModal', ['$scope', '$uibModalInstance', 'Item', 'usuarioModel', 'rolModel', 'recursos',
-	function($scope, $uibModalInstance, Item, usuarioModel, rolModel, recursos){
+qmatiq.controller('usuarioModal', ['$scope', '$uibModalInstance', 'Item', 'usuarioModel', 'rolModel', 'recursos', 'constante',
+	function($scope, $uibModalInstance, Item, usuarioModel, rolModel, recursos, constante){
 		//variables angularjs
 		angular.extend($scope,{
 			user: {},
@@ -16,13 +16,13 @@ qmatiq.controller('usuarioModal', ['$scope', '$uibModalInstance', 'Item', 'usuar
 					$scope.user.email_trabajo	= response.data[0]['email_trabajo'];
 					$scope.selectedItem 		= response.data[0]['rol_id'];
 					//carga locales de usuario
-					usuarioModel.getUsuariosLocales(1,Item).success(function(responseLocal){
+					usuarioModel.getUsuariosLocales(Item).success(function(responseLocal){
 						$scope.locales 		= responseLocal.data;
 						$scope.showModal 	= true;
 					});
 				});
 			}else{
-				usuarioModel.getUsuariosLocales(1,Item).success(function(responseLocal){
+				usuarioModel.getUsuariosLocales(Item).success(function(responseLocal){
 					$scope.locales 		= responseLocal.data;
 					$scope.showModal 	= true;
 				});
@@ -41,15 +41,17 @@ qmatiq.controller('usuarioModal', ['$scope', '$uibModalInstance', 'Item', 'usuar
 				return $scope.locales[key]['acceso'] = recursos.changeAcceso(acceso);
 			},
 			doUsuarios: function(usuarioForm, estadoForm){
-				var data = [{
-					nombre: $scope.user.nombre,
-					email_trabajo: $scope.user.email_trabajo,
-					cuenta_id: 1,
-					rol_id: $scope.selectedItem,
-					sharedLocal: []
-				}];
+				var locales = usuarioModel.prepararArrayLocales($scope.locales);
+
+				var data = {
+					nombre: 		$scope.user.nombre,
+					email_trabajo: 	$scope.user.email_trabajo,
+					rol_id: 		$scope.selectedItem,
+					sharedLocal: 	locales
+				};
 				//Nuevo usuario
 				if(estadoForm == 0){
+					data.cuenta_id = constante.cuenta_id;
 					usuarioModel.post(data).success(function(response){
 						$uibModalInstance.close(true);
 					});

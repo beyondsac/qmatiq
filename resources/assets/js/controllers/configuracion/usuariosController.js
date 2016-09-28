@@ -1,9 +1,22 @@
-qmatiq.controller('usuariosController', ['$scope', '$uibModal', 'usuarioModel', 
+qmatiq.controller('usuariosController', ['$scope', '$uibModal', 'usuarioModel',
 	function($scope, $uibModal, usuarioModel){
 		//cambiando el titulo de pagina
 		$scope.$parent.headTitulo = $scope.$parent.nameProject + 'Usuarios';//Metodos
 
 		angular.extend( $scope, {
+			changeList: function(){
+				$scope.$parent.showCargandoUsuarios = false;
+				usuarioModel.getAll($scope.selectedLocal).success(function(response){
+					$scope.$parent.selectedLocal 		= $scope.selectedLocal;
+					if(response.data.length != 0){
+						$scope.$parent.cargando = 'Cargando...';
+						$scope.$parent.usuarios 			= response.data;
+						$scope.$parent.showCargandoUsuarios = true;
+					}else{
+						$scope.$parent.cargando = 'No existen usuarios en este Local';
+					}
+				});
+			},
 			edit: function(id){
 				if(id != 3){
 					var modalInstance = $uibModal.open( $scope.templates(id) );
@@ -35,7 +48,7 @@ qmatiq.controller('usuariosController', ['$scope', '$uibModal', 'usuarioModel',
 			},
 			update: function(modalInstance){
 				modalInstance.result.then(function(responseClose){
-					usuarioModel.getAll().success(function(response){
+					usuarioModel.getAll($scope.selectedLocal).success(function(response){
 						$scope.$parent.usuarios = response.data;
 					});
 				});

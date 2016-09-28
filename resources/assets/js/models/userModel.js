@@ -1,4 +1,4 @@
-qmatiq.factory('userModel', ['$http', '$cookies', 'URL', function($http, $cookies, URL){
+qmatiq.factory('userModel', ['$http', '$cookies', 'constante', function($http, $cookies, constante){
 	var userModel = {};
 
 	userModel.doLogin = function(data){
@@ -6,7 +6,7 @@ qmatiq.factory('userModel', ['$http', '$cookies', 'URL', function($http, $cookie
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			url: URL+'usuarios/login',
+			url: constante.URL+'usuarios/login',
 			method: 'POST',
 			data: {
 				login: 		data.login,

@@ -24,10 +24,11 @@
 								
 								<div class="col-lg-12 col-md-12 col-lg-offset-1 col-md-offset-1 h_47_LightC fs_15 mb_20">
 									<span>Local Asignado </span>
-									<select name="local" id="local" class="input_gris w_150">
-										<option value="0">Todos</option>
-										<option value="0">LOCAL A</option>
-										<option value="0">LOCAL B</option>
+									<select class="fs_15 h_47_LightC input_gris w_150"
+										ng-model="selectedLocal"
+										ng-options="local.id as local.nombre for local in locales"
+										ng-change="changeList()">
+										<option value="">Todos</option>
 									</select>
 								</div>
 								<table class="table table-responsive table-select m_0 tabla_cabecera">
@@ -41,7 +42,12 @@
 										</tr>
 									</thead>
 								</table>
-								<div class="tabla_detalle tabla_detalle_usuarios">
+								<div class="cargando_lista" ng-hide="showCargandoUsuarios">
+									<div class="text-center" 
+									ng-bind="$parent.cargando"></div>
+								</div>
+								<div class="tabla_detalle tabla_detalle_usuarios"  
+								ng-show="showCargandoUsuarios">
 									<table class="table table-responsive table-select" 
 									ng-show="showCargando">
 										<tbody class="h_47_LightC fc_687a8b">

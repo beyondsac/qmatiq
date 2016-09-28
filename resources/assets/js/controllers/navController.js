@@ -63,7 +63,7 @@ qmatiq.controller('navController', ['$scope', '$location', function($scope, $loc
 					}
 				]
 			},
-			{
+			/*{
 				url: '/video',
 				ico: '<i class="fa fa-film"></i>',
 				subMenu: [
@@ -80,7 +80,7 @@ qmatiq.controller('navController', ['$scope', '$location', function($scope, $loc
 						url: '/video/playlist_de_youtube',
 					}
 				]
-			},
+			},*/
 			{
 				url: '/atencion',
 				ico: '<i class="fa fa-hand-o-right"></i>',

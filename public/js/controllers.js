@@ -34,13 +34,21 @@ qmatiq.controller('globalController', ['$scope', '$location', '$q', 'listService
 		$q.all(
 			[
 				listServices.getRolAll(),
-				listServices.getUsuarioAll()
+				listServices.getUsuarioAll(),
+				listServices.getLocalAll(),
+				listServices.getConfiguracionAll(),
 			]
 		).then(function(response){
-			$scope.roles 		= response[0].data.data;
-			$scope.usuarios 	= response[1].data.data;
-			$scope.showCargando = true;
-			//$scope.showRoles = true;
+			$scope.roles 				= response[0].data.data;
+			$scope.usuarios 			= response[1].data.data;
+			$scope.locales 				= response[2].data.data;
+			$scope.configuraciones 		= response[3].data.data;
+			//combobox locales - usuarios
+			$scope.selectedLocal = 0;
+			//deshabilitando cargadores
+			$scope.cargando 				= 'Cargando ...';
+			$scope.showCargando 			= true;
+			$scope.showCargandoUsuarios 	= true;
 		});
 	}
 ]);
@@ -123,7 +131,7 @@ qmatiq.controller('navController', ['$scope', '$location', function($scope, $loc
 					}
 				]
 			},
-			{
+			/*{
 				url: '/video',
 				ico: '<i class="fa fa-film"></i>',
 				subMenu: [
@@ -140,7 +148,7 @@ qmatiq.controller('navController', ['$scope', '$location', function($scope, $loc
 						url: '/video/playlist_de_youtube',
 					}
 				]
-			},
+			},*/
 			{
 				url: '/atencion',
 				ico: '<i class="fa fa-hand-o-right"></i>',
@@ -289,12 +297,25 @@ qmatiq.controller('rolesController', ['$scope', '$uibModal', 'rolModel',
 		});
 	}
 ]);
-qmatiq.controller('usuariosController', ['$scope', '$uibModal', 'usuarioModel', 
+qmatiq.controller('usuariosController', ['$scope', '$uibModal', 'usuarioModel',
 	function($scope, $uibModal, usuarioModel){
 		//cambiando el titulo de pagina
 		$scope.$parent.headTitulo = $scope.$parent.nameProject + 'Usuarios';//Metodos
 
 		angular.extend( $scope, {
+			changeList: function(){
+				$scope.$parent.showCargandoUsuarios = false;
+				usuarioModel.getAll($scope.selectedLocal).success(function(response){
+					$scope.$parent.selectedLocal 		= $scope.selectedLocal;
+					if(response.data.length != 0){
+						$scope.$parent.cargando = 'Cargando...';
+						$scope.$parent.usuarios 			= response.data;
+						$scope.$parent.showCargandoUsuarios = true;
+					}else{
+						$scope.$parent.cargando = 'No existen usuarios en este Local';
+					}
+				});
+			},
 			edit: function(id){
 				if(id != 3){
 					var modalInstance = $uibModal.open( $scope.templates(id) );
@@ -326,7 +347,7 @@ qmatiq.controller('usuariosController', ['$scope', '$uibModal', 'usuarioModel',
 			},
 			update: function(modalInstance){
 				modalInstance.result.then(function(responseClose){
-					usuarioModel.getAll().success(function(response){
+					usuarioModel.getAll($scope.selectedLocal).success(function(response){
 						$scope.$parent.usuarios = response.data;
 					});
 				});
@@ -347,23 +368,63 @@ qmatiq.controller('usuariosController', ['$scope', '$uibModal', 'usuarioModel',
 		});
 	}
 ]);
-qmatiq.controller('logicakioscosController', ['$scope', function($scope){
+qmatiq.controller('logicakioscosController', ['$scope', 'logicaKModel', 'recursos', '$timeout', function($scope, logicaKModel, recursos, $timeout){
 	//cambiando el titulo de pagina
 	$scope.$parent.headTitulo = $scope.$parent.nameProject + 'Lógica de kioscos';
-	//quitando el show Cargando
-	$scope.showCargando = true;
+	
+	// metodos
+	angular.extend($scope, {
+		changeCheck: function(acceso){
+			return recursos.changeCheck(acceso);
+		},
+		changeLectura: function(key_obj, acceso){
+			return $scope.$parent.configuraciones[key_obj] = recursos.changeAcceso(acceso);
+		},
+		doLogicaK: function(LogicaKForm){
+			//console.log($scope.$parent.configuraciones);
+			logicaKModel.post($scope.$parent.configuraciones).success(function(){
+				$scope.showAlert = true;
+				$scope.alerta	 = 'alert-success text-center';
+				$scope.alerts 	 = [{ mensaje: 'DATOS GUARDADOS' }];
+				//efecto de desvanecimiento
+				$timeout(function(){
+					$scope.showAlert 	= false;
+				}, 1000);
+				//elimina la etiqueta
+				$timeout (function(){
+					$scope.alerts.splice(0,1);
+				}, 3000);
+			});
+		}
+	});
+
 }]);
-qmatiq.controller('estilosController', ['$scope', function($scope){
+qmatiq.controller('estilosController', ['$scope', '$uibModal', function($scope, $uibModal){
 	//cambiando el titulo de pagina
 	$scope.$parent.headTitulo = $scope.$parent.nameProject + 'Estilos';
-	//quitando el show Cargando
-	$scope.showCargando = true;
+	//Metodos
+	angular.extend( $scope, {
+		showConsole: function(){
+			var modalInstance = $uibModal.open( $scope.templates(0) );
+		},
+		templates: function(id){
+			return templates = {
+				templateUrl: 'templates/configuracion/modales/estilos_consola.html',
+				controller: 'estiloConsolaModal',
+				windowClass: 'modal-predeterminado',
+				size: 'estilo-dialog',
+				resolve: {
+					Item: function(){
+						return id;
+					}
+				}
+			}
+		}
+	});
 }]);
 qmatiq.controller('seguridadController', ['$scope', function($scope){
 	//cambiando el titulo de pagina
 	$scope.$parent.headTitulo = $scope.$parent.nameProject + 'Seguridad';
-	//quitando el show Cargando
-	$scope.showCargando = true;
 }]);
 qmatiq.controller('peticionesController', ['$scope', function($scope){
 	//cambiando el titulo de pagina

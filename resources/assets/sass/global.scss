@@ -79,6 +79,22 @@ a {
   padding-right: 2px;
 }
 
+.radio_hidden {
+  cursor: pointer;
+  margin: 0 !important;
+  opacity: 0;
+  padding: 0 !important;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.relative{
+  position: relative;
+}
+.inline-block{
+  display: inline-block;
+}
 /* bordes */
 .br_1{
    border-right: 1px solid #e3e6eb;
@@ -601,6 +617,17 @@ header {
   height: 45px;
   margin: -22.5px 0 0 -82.5px;
 }
+
+.cargando_lista{
+  opacity: 0.1;
+  background-color: #000000;
+  height: 100px;
+  div{
+    color: #ffffff;
+    font-size: 30px;
+    line-height: 100px;
+  }
+}
 /* Logeo */
 
 .input_blanco {
@@ -856,9 +883,14 @@ header {
   top: 20px;
 }
 
-.modal-dialog {
-  position: fixed;
-  right: 15px;
+@media (min-width: 768px) {
+  .modal-dialog {
+    position: fixed;
+    right: 15px;
+  }
+  .modal-estilo-dialog{
+    width: 430px;
+  }
 }
 
 .modal .modal-body {
@@ -1176,6 +1208,7 @@ header {
   background-color: #e5edf0;
   padding: 10px;
   .consola_cabecera_imagenes {
+    overflow:hidden;
     background-color: #fff;
   }
 }
@@ -1222,4 +1255,22 @@ header {
   border: 1px solid #e3e6eb;
   margin-right: 10px;
   padding: 2px;
+}
+
+/* alert */
+.alertas{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  transition: all linear 2s;
+}
+.alertas.ng-hide {
+  opacity: 0;
+}
+/* minicolors */
+.minicolors-swatch{
+  border-radius: 0 !important;
+  width: 22px !important;
+  height: 17px !important;
 }

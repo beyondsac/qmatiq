@@ -1,4 +1,4 @@
-var qmatiq = angular.module('qmatiq',['ngRoute', 'ngResource', 'ngCookies', 'ngSanitize', 'ui.bootstrap']);
+var qmatiq = angular.module('qmatiq',['ngRoute', 'ngResource', 'ngCookies', 'ngSanitize', 'ngAnimate', 'ui.bootstrap', 'minicolors']);
 
 qmatiq.config(['$routeProvider', '$locationProvider',
 	function($routeProvider, $locationProvider){
@@ -85,7 +85,7 @@ qmatiq.config(['$routeProvider', '$locationProvider',
 			authenticated: true
 		});
 		//Video
-		$routeProvider.when('/video',{
+		/*$routeProvider.when('/video',{
 			templateUrl : 'templates/video/index.html',
 			controller: 'videoController',
 			authenticated: true
@@ -101,7 +101,7 @@ qmatiq.config(['$routeProvider', '$locationProvider',
 			templateUrl : 'templates/video/playlist_de_youtube.html',
 			controller: 'playyoutubeController',
 			authenticated: true
-		});
+		});*/
 		//Atencion
 		$routeProvider.when('/atencion',{
 			templateUrl : 'templates/atencion/index.html',
@@ -201,5 +201,31 @@ qmatiq.run(['$rootScope', '$location', 'userModel',
 	}
 ]);
 
-qmatiq.constant('URL', 'http://api.qmatiq.piensamasalla.com/v1/');
+qmatiq.constant('constante', { 
+	'URL': 'http://api.qmatiq.piensamasalla.com/v1/', 
+	'cuenta_id': 1
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //# sourceMappingURL=app.js.map

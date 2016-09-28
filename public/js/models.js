@@ -1,4 +1,4 @@
-qmatiq.factory('userModel', ['$http', '$cookies', 'URL', function($http, $cookies, URL){
+qmatiq.factory('userModel', ['$http', '$cookies', 'constante', function($http, $cookies, constante){
 	var userModel = {};
 
 	userModel.doLogin = function(data){
@@ -6,7 +6,7 @@ qmatiq.factory('userModel', ['$http', '$cookies', 'URL', function($http, $cookie
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			url: URL+'usuarios/login',
+			url: constante.URL+'usuarios/login',
 			method: 'POST',
 			data: {
 				login: 		data.login,
@@ -42,19 +42,19 @@ qmatiq.factory('userModel', ['$http', '$cookies', 'URL', function($http, $cookie
 	return userModel;
 
 }]);
-qmatiq.factory('rolModel', [ '$http', 'URL', function($http, URL){
+qmatiq.factory('rolModel', [ '$http', 'constante', function($http, constante){
 	var rolModel = {};
 	//Services Api
 	rolModel.getAll = function(){
-		return $http.get(URL+'cuentas/1/roles');
+		return $http.get(constante.URL+'cuentas/'+constante.cuenta_id+'/roles');
 	};
 
 	rolModel.getRol = function(id){
-		return $http.get(URL+'roles/'+id);
+		return $http.get(constante.URL+'roles/'+id);
 	};
 
 	rolModel.getRolPermiso = function(id){
-		return $http.get(URL+'roles/'+id+'/permisos');
+		return $http.get(constante.URL+'roles/'+id+'/permisos');
 	};
 
 	rolModel.postRol = function(data){
@@ -62,18 +62,18 @@ qmatiq.factory('rolModel', [ '$http', 'URL', function($http, URL){
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			url : URL+'roles',
+			url : constante.URL+'roles',
 			method : 'POST',
 			data : data
 		});
 	};
 
 	rolModel.putRol = function(id, data){
-		return $http.put(URL+'roles/'+id, data);
+		return $http.put(constante.URL+'roles/'+id, data);
 	};
 
 	rolModel.deleteRol = function(id){
-		return $http.delete(URL+'roles/'+id);
+		return $http.delete(constante.URL+'roles/'+id);
 	};
 	//prepararData POST y PUT
 	rolModel.prepararArrayModulos = function(permisos){
@@ -90,32 +90,23 @@ qmatiq.factory('rolModel', [ '$http', 'URL', function($http, URL){
 		return modulos;
 	};
 
-	rolModel.prepararData = function(data){
-		var mi_data = {
-			nombre : data.nombre,
-			cuenta_id : data.cuenta_id,
-			modulos : data.modulos
-		};
-		return mi_data;
-	};
-
 	return rolModel;
 }]);
-qmatiq.factory('usuarioModel', ['$http', 'URL', function($http, URL){
+qmatiq.factory('usuarioModel', ['$http', 'constante', function($http, constante){
 	var usuarioModel = {};
 
-	usuarioModel.getAll = function(){
-		return $http.get(URL+'cuentas/1/usuarios');
+	usuarioModel.getAll = function(local_id){
+		return $http.get(constante.URL+'cuentas/'+constante.cuenta_id+'/usuarios?local_id='+local_id);
 	};
 
 	usuarioModel.get = function(id){
-		return $http.get(URL+'usuarios/'+id);
+		return $http.get(constante.URL+'usuarios/'+id);
 	};
 
-	usuarioModel.getUsuariosLocales = function(cuenta_id,id){
+	usuarioModel.getUsuariosLocales = function(id){
 		return $http({
-			headers: {'cuenta_id': cuenta_id },
-			url: URL+'usuarios/'+id+'/locales',
+			headers: {'cuenta_id': constante.cuenta_id },
+			url: constante.URL+'usuarios/'+id+'/locales',
 			method: 'GET'
 		});
 	};
@@ -125,31 +116,44 @@ qmatiq.factory('usuarioModel', ['$http', 'URL', function($http, URL){
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			url : URL+'usuarios',
+			url : constante.URL+'usuarios',
 			method : 'POST',
 			data : data
 		});
 	};
 
 	usuarioModel.put = function(id, data){
-		return $http.put(URL+'usuarios/'+id, data);
+		return $http.put(constante.URL+'usuarios/'+id, data);
 	};
 
 	usuarioModel.delete = function(id){
-		return $http.delete(URL+'usuarios/'+id);
+		return $http.delete(constante.URL+'usuarios/'+id);
+	};
+	//prepararData POST y PUT
+	usuarioModel.prepararArrayLocales = function(locales){
+		//personalizando locales
+		var mis_locales = [];
+		for (var i = 0; i < locales.length; i++) {
+			if(locales[i]['acceso'] == 1){
+				mis_locales.push(
+					{ id : locales[i]['local_id'] }
+				);
+			}
+		};
+		return mis_locales;
 	};
 	
 	return usuarioModel;
 }]);
-qmatiq.factory('localModel', ['$http', 'URL', function($http, URL){
+qmatiq.factory('localModel', ['$http', 'constante', function($http, constante){
 	var localModel = {};
 
 	localModel.getAll = function(){
-		return $http.get(URL+'cuentas/1/locales');
+		return $http.get(constante.URL+'cuentas/1/locales');
 	};
 
 	localModel.get = function(id){
-		return $http.get(URL+'locales/'+id);
+		return $http.get(constante.URL+'locales/'+id);
 	};
 
 	localModel.post = function(data){
@@ -157,23 +161,40 @@ qmatiq.factory('localModel', ['$http', 'URL', function($http, URL){
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			url : URL+'locales',
+			url : constante.URL+'locales',
 			method : 'POST',
 			data : data
 		});
 	};
 
 	localModel.put = function(id, data){
-		return $http.put(URL+'locales/'+id, data);
+		return $http.put(constante.URL+'locales/'+id, data);
 	};
 
 	localModel.delete = function(id){
-		return $http.delete(URL+'locales/'+id);
+		return $http.delete(constante.URL+'locales/'+id);
 	};
 	
 	return localModel;
 }]);
-qmatiq.factory('moduloModel', ['$http', 'URL', function($http, URL){
+qmatiq.factory('logicaKModel', ['$http', 'constante', function($http, constante){
+	var logicaKModel = {};
+
+	logicaKModel.post = function(data){
+		return $http({
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			url : constante.URL+'cuentas/'+constante.cuenta_id+'/configuracion',
+			method : 'POST',
+			data : data
+		});
+	};
+
+	
+	return logicaKModel;
+}]);
+qmatiq.factory('moduloModel', ['$http', 'constante', function($http, constante){
 	var moduloModel = {};
 
 	return moduloModel;

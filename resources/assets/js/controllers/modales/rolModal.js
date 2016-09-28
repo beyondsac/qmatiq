@@ -1,5 +1,5 @@
-qmatiq.controller('rolModal', ['$scope', '$uibModalInstance', 'Item', 'rolModel', 'recursos',
-	function($scope, $uibModalInstance, Item, rolModel, recursos){
+qmatiq.controller('rolModal', ['$scope', '$uibModalInstance', 'Item', 'rolModel', 'recursos', 'constante',
+	function($scope, $uibModalInstance, Item, rolModel, recursos, constante){
 		//variables angularjs
 		angular.extend($scope,{
 			rol: {},
@@ -32,13 +32,12 @@ qmatiq.controller('rolModal', ['$scope', '$uibModalInstance', 'Item', 'rolModel'
 			doRoles: function(rolesFom, estadoForm){
 				var modulos = rolModel.prepararArrayModulos($scope.rol.permisos);
 				//creando data 
-				var data_before = { 
-					nombre: $scope.rol.nombre,
-					cuenta_id: 1,
-					modulos: modulos
+				var data = { 
+					nombre: 	$scope.rol.nombre,
+					cuenta_id: 	constante.cuenta_id,
+					modulos: 	modulos
 				};
 
-				var data = rolModel.prepararData(data_before);
 				//Nuevo Rol
 				if(estadoForm == 0){
 					rolModel.postRol(data).success(function(response){

@@ -18,20 +18,24 @@ elixir(function(mix) {
         'font.scss',
         'global.scss']);
 
-    /*mix.styles([
+    mix.styles([
         './public/css/app.css',
-        './public/bower_components/bootstrap-multiselect/dist/css/bootstrap-multiselect.css'
-        ],'public/css/app.css');*/
+        //'./public/bower_components/bootstrap-multiselect/dist/css/bootstrap-multiselect.css'
+        './public/bower_components/jquery-minicolors/jquery.minicolors.css'
+        ],'public/css/app.css');
 
     mix.scripts([
         //Librerias
         './public/bower_components/jquery/dist/jquery.min.js',
+        './public/bower_components/jquery-minicolors/jquery.minicolors.min.js',
     	'./public/bower_components/angular/angular.min.js',
     	'./public/bower_components/angular-route/angular-route.min.js',
         './public/bower_components/angular-resource/angular-resource.min.js',
     	'./public/bower_components/angular-cookies/angular-cookies.min.js',
         './public/bower_components/angular-sanitize/angular-sanitize.min.js',
+        './public/bower_components/angular-animate/angular-animate.min.js',
         './public/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+        './public/bower_components/angular-minicolors/angular-minicolors.js',
         //'./public/bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js',
         //Jquery
     	],'public/js/lib.js');
@@ -83,6 +87,7 @@ elixir(function(mix) {
     mix.scripts([
         'controllers/modales/rolModal.js',
         'controllers/modales/usuarioModal.js',
+        'controllers/modales/estiloConsolaModal.js',
         //generales
         'controllers/modales/deleteModal.js',
         ],'public/js/modals.js');
@@ -92,6 +97,7 @@ elixir(function(mix) {
         'models/rolModel.js',
         'models/usuarioModel.js',
         'models/localModel.js',
+        'models/logicaKModel.js',
         'models/moduloModel.js',
         ],'public/js/models.js');
 

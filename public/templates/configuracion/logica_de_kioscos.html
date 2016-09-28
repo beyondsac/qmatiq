@@ -6,101 +6,124 @@
 
 	<div class="container-fluid p_0">
 		<div class="col-lg-9 col-md-9 col-lg-offset-3 col-md-offset-3">
-			<div class="row">
+			<div class="row" ng-show="showCargando">
 				<h1 class="fs_33 h_37_ThinC mt_30">
 					¿Cómo funcionarán tus <span class="fc_2bb673 h_47_LightC">Kioscos</span>?
 				</h1>
 				<div class="col-lg-10 col-md-12 mt_10">
 					<div class="borde_total">
-						<div class="overflow mt_30">
-							<div class="col-lg-5 col-md-5">
-								<div class="col-lg-12 col-md-12">
-									<h5 class="fs_15 h_Cond fc_7fd0d9">Mecanismos de lectura:</h5>
-									<div class="pull-left logica_iconos">
-										<i class="fs_32 fa fa-credit-card fc_8293a3"></i>
+						<form name="logicaKForm" ng-submit="doLogicaK(logicaKForm)" autocomplete="off" novalidate>
+							<div class="overflow mt_30">
+								<div class="col-lg-5 col-md-5">
+									<div class="col-lg-12 col-md-12">
+										<h5 class="fs_15 h_Cond fc_7fd0d9">Mecanismos de lectura:</h5>
+										<div class="pull-left logica_iconos">
+											<i class="fs_32 fa fa-credit-card fc_8293a3"></i>
+										</div>
+										<div class="pull-left">
+											<span class="fs_15 h_47_LightC fc_687a8b cursor" 
+												ng-click="changeLectura('kiosco_leer_barra',configuraciones.kiosco_leer_barra)">
+												<i 	class="fa "
+													ng-class="changeCheck(configuraciones.kiosco_leer_barra)"></i> 
+													Código de barras
+											</span><br>
+											<span class="fs_15 h_47_LightC fc_687a8b cursor"
+												ng-click="changeLectura('kiosco_leer_banda',configuraciones.kiosco_leer_banda)">
+												<i class="fa "
+													ng-class="changeCheck(configuraciones.kiosco_leer_banda)"></i> 
+													Código de banda magnética
+											</span>
+										</div>
 									</div>
-									<div class="pull-left">
-										<span class="fs_15 h_47_LightC fc_687a8b">
-											<i class="fc_red check_disabled fa fa-square-o"></i> Código de barras
-										</span><br>
-										<span class="fs_15 h_47_LightC fc_687a8b">
-											<i class="fa fa-check-square-o"></i> Código de banda magnética
-										</span>
+									<div class="col-lg-12 col-md-12">
+										<h5 class="fs_15 h_Cond fc_7fd0d9">Métodos de indentificación alterna:</h5>
+										<div class="pull-left logica_iconos">
+											<i class="fs_35 fa fa-user fc_8293a3"></i>
+										</div>
+										<div class="pull-left">
+											<span class="fs_15 h_47_LightC fc_687a8b relative cursor">
+												<input type="radio" 
+													ng-model="configuraciones.kiosco_debe_identificarse" value="1" 
+													class="radio_hidden">
+												<i class="fa"
+													ng-class="configuraciones.kiosco_debe_identificarse==1 ? 
+													'fa-dot-circle-o' : 'fc_red fa-circle-o'"></i> 
+													Tienes que identificarte
+											</span><br>
+											<span class="fs_15 h_47_LightC fc_687a8b relative cursor">
+												<input type="radio" 
+													ng-model="configuraciones.kiosco_debe_identificarse" value="0" 
+													class="radio_hidden">
+												<i class="fa"
+													ng-class="configuraciones.kiosco_debe_identificarse==0 ? 
+													'fa-dot-circle-o' : 'fc_red fa-circle-o'"></i> 
+													No necesitas identificarte
+											</span>
+										</div>
+									</div>
+									<div class="col-lg-12 col-md-12">
+										<h5 class="fs_15 h_Cond fc_7fd0d9">Tiempo de espera para reiniciar el kiosco:</h5>
+										<div class="pull-left logica_iconos">
+											<i class="fs_35 fa fa-history fc_8293a3"></i>
+										</div>
+										<div class="pull-left mt_5">
+											<span class="fs_15 h_47_LightC fc_687a8b">
+												<input type="text" class="input_gris input_logica_kiosco"
+												ng-model="configuraciones.kiosco_espera"> Segundos
+											</span>
+										</div>
 									</div>
 								</div>
-								<div class="col-lg-12 col-md-12">
-									<h5 class="fs_15 h_Cond fc_7fd0d9">Métodos de indentificación alterna:</h5>
-									<div class="pull-left logica_iconos">
-										<i class="fs_35 fa fa-user fc_8293a3"></i>
-									</div>
-									<div class="pull-left">
-										<span class="fs_15 h_47_LightC fc_687a8b">
-											<i class="fa fa-dot-circle-o"></i> Tienes que identificarte
-										</span><br>
-										<span class="fs_15 h_47_LightC fc_687a8b">
-											<i class="fc_red fa fa-circle-o"></i> No necesitas identificarte
-										</span>
-									</div>
+								<div class="col-lg-7 col-md-7 p_0 text-center">
+									<img src="./img/logica_de_kioscos.jpg" alt="">
 								</div>
+							</div>
+							<div class="overflow">
 								<div class="col-lg-12 col-md-12">
-									<h5 class="fs_15 h_Cond fc_7fd0d9">Tiempo de espera para reiniciar el kiosco:</h5>
-									<div class="pull-left logica_iconos">
-										<i class="fs_35 fa fa-history fc_8293a3"></i>
-									</div>
-									<div class="pull-left mt_5">
-										<span class="fs_15 h_47_LightC fc_687a8b">
-											<input type="text" class="input_gris input_logica_kiosco"> Segundos
-										</span>
+									<div class="col-lg-12 col-md-12 mb_20">
+										<h5 class="fs_15 h_Cond fc_7fd0d9">Tolerancias durante la espera:</h5>
+										<div class="pull-left logica_iconos">
+											<i class="fs_35 fa fa-clock-o fc_8293a3"></i>
+										</div>
+										<div class="pull-left pr_20 mr_20 br_1 h_47_LightC fs_15 fc_687a8b mt_5">
+											<h5 class="mt_5 fs_15"><strong>Mucha anticipación</strong></h5>
+											<div class="lh_15">
+												Pedir al visitante que<br>
+												regrese si se adelanta
+											</div>
+											<div class="mt_5">
+												Hasta <input type="text" class="input_gris input_logica_kiosco"
+												ng-model="configuraciones.kiosco_adelanto"> minutos
+											</div>
+										</div>
+										<div class="pull-left pr_20 mr_20 br_1 h_47_LightC fs_15 fc_687a8b mt_5 pb_23">
+											<h5 class="mt_5 fs_15"><strong>Llega a tiempo</strong></h5>
+											<div class="lh_15">
+												Anunciar automáticamente<br>
+												al visitante si llego dentro<br>
+												de la tolerancia indicada
+											</div>
+										</div>
+										<div class="pull-left pr_20 mr_20 h_47_LightC fs_15 fc_687a8b mt_5">
+											<h5 class="mt_5 fs_15"><strong>Se retrasa</strong></h5>
+											<div class="lh_15">
+												Cancelar el ticket si el<br> 
+												visitante se retrasa
+											</div>
+											<div class="mt_5">
+												Más de <input type="text" class="input_gris input_logica_kiosco"
+												ng-model="configuraciones.kiosco_retraso"> minutos
+											</div>
+										</div>
+									    <div class="text-right">
+									        <button type="submit" class="submit">
+									        	<i class="fa fa-check-circle fs_90"></i>
+									        </button>
+									    </div>
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-7 col-md-7 p_0 text-center">
-								<img src="./img/logica_de_kioscos.jpg" alt="">
-							</div>
-						</div>
-						<div class="overflow">
-							<div class="col-lg-12 col-md-12">
-								<div class="col-lg-12 col-md-12 mb_20">
-									<h5 class="fs_15 h_Cond fc_7fd0d9">Tolerancias durante la espera:</h5>
-									<div class="pull-left logica_iconos">
-										<i class="fs_35 fa fa-clock-o fc_8293a3"></i>
-									</div>
-									<div class="pull-left pr_20 mr_20 br_1 h_47_LightC fs_15 fc_687a8b mt_5">
-										<h5 class="mt_5 fs_15"><strong>Mucha anticipación</strong></h5>
-										<div class="lh_15">
-											Pedir al visitante que<br>
-											regrese si se adelanta
-										</div>
-										<div class="mt_5">
-											Hasta <input type="text" class="input_gris input_logica_kiosco"> minutos
-										</div>
-									</div>
-									<div class="pull-left pr_20 mr_20 br_1 h_47_LightC fs_15 fc_687a8b mt_5 pb_23">
-										<h5 class="mt_5 fs_15"><strong>Llega a tiempo</strong></h5>
-										<div class="lh_15">
-											Anunciar automáticamente<br>
-											al visitante si llego dentro<br>
-											de la tolerancia indicada
-										</div>
-									</div>
-									<div class="pull-left pr_20 mr_20 h_47_LightC fs_15 fc_687a8b mt_5">
-										<h5 class="mt_5 fs_15"><strong>Se retrasa</strong></h5>
-										<div class="lh_15">
-											Cancelar el ticket si el<br> 
-											visitante se retrasa
-										</div>
-										<div class="mt_5">
-											Más de <input type="text" class="input_gris input_logica_kiosco"> minutos
-										</div>
-									</div>
-								    <div class="text-right">
-								        <button type="submit" class="submit">
-								        	<i class="fa fa-check-circle fs_90"></i>
-								        </button>
-								    </div>
-								</div>
-							</div>
-						</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -109,3 +132,7 @@
 
 </div>
 <div class="franja_bottom"></div>
+<!-- alertas -->
+<div class="alert alertas" ng-class="alerta" ng-repeat="alert in alerts" ng-show='showAlert'>
+	{{alert.mensaje}}
+</div>

@@ -1,12 +1,12 @@
-qmatiq.factory('localModel', ['$http', 'URL', function($http, URL){
+qmatiq.factory('localModel', ['$http', 'constante', function($http, constante){
 	var localModel = {};
 
 	localModel.getAll = function(){
-		return $http.get(URL+'cuentas/1/locales');
+		return $http.get(constante.URL+'cuentas/1/locales');
 	};
 
 	localModel.get = function(id){
-		return $http.get(URL+'locales/'+id);
+		return $http.get(constante.URL+'locales/'+id);
 	};
 
 	localModel.post = function(data){
@@ -14,18 +14,18 @@ qmatiq.factory('localModel', ['$http', 'URL', function($http, URL){
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			url : URL+'locales',
+			url : constante.URL+'locales',
 			method : 'POST',
 			data : data
 		});
 	};
 
 	localModel.put = function(id, data){
-		return $http.put(URL+'locales/'+id, data);
+		return $http.put(constante.URL+'locales/'+id, data);
 	};
 
 	localModel.delete = function(id){
-		return $http.delete(URL+'locales/'+id);
+		return $http.delete(constante.URL+'locales/'+id);
 	};
 	
 	return localModel;

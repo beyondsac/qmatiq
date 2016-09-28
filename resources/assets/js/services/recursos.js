@@ -1,4 +1,4 @@
-qmatiq.service('recursos', ['$http', 'URL', function($http, URL){
+qmatiq.service('recursos', [ function(){
 	this.changeCheck =  function(acceso){
 		if(acceso == 0){
 			return 'fc_red check_disabled fa-square-o';
