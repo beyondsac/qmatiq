@@ -1,108 +1,56 @@
 <div class="cargando_modal" ng-hide="showModal">
-	<div>Cargando...</div>
+	<div>Cargando...</div> 
 </div>
-<div id="modal_estilos_1" ng-show="showModal">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal">&times;</button>
-		<div class="fc_7fd0d9 h_Cond fs_16">Editar estilos para la consola</div>
-	</div>
-	<div class="modal-body">
-		<div class="overflow mb_10">
-			<div class="pull-right h_47_LightC fs_15">
-				Restablecer <i class="fa fa-undo"></i>
+<div id="modal_seguridad" ng-show="showModal">
+	<div class="pull-right modal-predeterminado modal-seguridad">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<div class="fc_7fd0d9 h_Cond fs_16">Código de autenticación</div>
 			</div>
-		</div>
-		<div class="consola_cabecera overflow">
-			<div class="consola_cabecera_imagenes">
-				<div class="pull-left logo col-sm-2 col-xs-2">
-					<div class="row">
-                		<img src="./img/logo1.png" class="img-responsive">
-					</div>
-                </div>
-				<div class="pull-left col-xs-10">
-					<div class="row">
-	                	<img src="./img/logo2.png" height="50">
-					</div>
-                </div>
-			</div>
-		</div>
-		<div class="overflow">
-			<ul class="nav nav-tabs h_Cond fs_16 tab_predeterminado" role="tablist">
-				<li role="presentation" class="active">
-					<a href="#tab_estilos_consola_generales" aria-controls="tab_estilos_consola_generales" role="tab" data-toggle="tab">Generales</a>
-				</li>
-			</ul>
-			  <!-- Tab panes -->
-			<div class="tab-content">
-			    <div role="tabpanel" class="tab-pane active" id="tab_estilos_consola_generales">
-					<div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 mt_20 pr_0">
-						<div class="overflow mb_10 fs_15 687a8b h_47_LightC">
-							<label class="w_50 inline-block">Logo 1</label>
-							<input type="text" class="input_gris w_157 inline-block">
-							<i class="fa fa-search inline-block"></i>
-							<span class="fs_13 fc_99a7b5 inline-block">*.PNG 50x50</span>
-						</div>
-						<div class="overflow mb_10 fs_15 687a8b h_47_LightC">
-							<label class="w_50 inline-block">Logo 2</label>
-							<input type="text" class="input_gris w_157 inline-block">
-							<i class="fa fa-search inline-block"></i>
-							<span class="fs_13 fc_99a7b5 inline-block">*.PNG 330x50</span>
-						</div>
-						<h5 class="mt_20">Colores principales (#000000)</h5>
-						<div class="inline-block mb_10 fs_15 687a8b h_47_LightC">
-							<label class="inline-block w_50">Fondo</label>
-							<div class="inline-block">
-								<input
-								    minicolors="customSettings"
-								    id="color-input"
-								    class="w_230 input_gris"
-								    type="text"
-								    ng-model="fondo">
-							</div>
-						</div>
-						<div class="inline-block mb_10 fs_15 687a8b h_47_LightC">
-							<label class="inline-block w_50">Textos</label>
-							<div class="inline-block">
-								<input
-								    minicolors="customSettings"
-								    id="color-input"
-								    class="w_230 input_gris"
-								    type="text"
-								    ng-model="fondo">
-							</div>
-						</div>
-						<h5>Colores secundarios (#000000)</h5>
-						<div class="inline-block mb_10 fs_15 687a8b h_47_LightC">
-							<label class="inline-block w_50">Fondo</label>
-							<div class="inline-block">
-								<input
-								    minicolors="customSettings"
-								    id="color-input"
-								    class="w_230 input_gris"
-								    type="text"
-								    ng-model="fondo">
-							</div>
-						</div>
-						<div class="inline-block mb_10 fs_15 687a8b h_47_LightC">
-							<label class="inline-block w_50">Textos</label>
-							<div class="inline-block">
-								<input
-								    minicolors="customSettings"
-								    id="color-input"
-								    class="w_230 input_gris"
-								    type="text"
-								    ng-model="fondo">
-							</div>
-						</div>
-						<div class="overflow">
-							<div class="text-center">
-								<button type="submit" class="submit">
-									<i class="fa fa-check-circle fs_90"></i>
-								</button>
-							</div>
-						</div>
-					</div>
-			    </div>
+			<div class="modal-body">
+				<div class="overflow mb_10">
+					<span class="fs_15 h_47_LightC fc_687a8b">
+						<i class="fc_red fa fa-circle-o"></i> Nunca actualizar
+					</span>
+				</div>
+				<div class="overflow mb_10">
+					<span class="fs_15 h_47_LightC fc_687a8b">
+						<i class="fa fa-dot-circle-o"></i> Actualizar una vez al mes
+					</span>
+				</div>
+				<div class="overflow mb_10">
+					<span class="fs_15 h_47_LightC fc_687a8b">
+						<i class="fc_red fa fa-circle-o"></i> Actualizar una vez a la semana
+					</span>
+				</div>
+				<div class="overflow mb_10">
+					<span class="fs_15 h_47_LightC fc_687a8b">
+						<i class="fc_red fa fa-circle-o"></i> Actualizar una vez al día
+					</span>
+				</div>
+				<div class="overflow mb_10">
+					<span class="fs_15 h_47_LightC fc_687a8b">
+						<i class="fc_red fa fa-circle-o"></i> Actualizar cada 
+						<span class="fs_15 h_47_LightC fc_687a8b">
+							<input type="text" class="input_gris input_logica_kiosco">
+						</span> días
+					</span>
+				</div>
+				<div class="overflow mb_10 ml_18">
+					<span class="fs_15 h_47_LightC fc_687a8b">
+						Fecha de próxima actualización <br>
+						<span class="fs_15 h_47_LightC fc_687a8b">
+							<input type="text" class="input_gris w_170">
+						</span>
+					</span>
+				</div>
+				<div class="text-center">
+					<button type="submit" class="submit">
+						<i class="fa fa-check-circle fs_90"></i>
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>

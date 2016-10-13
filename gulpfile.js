@@ -88,6 +88,7 @@ elixir(function(mix) {
         'controllers/modales/rolModal.js',
         'controllers/modales/usuarioModal.js',
         'controllers/modales/estiloConsolaModal.js',
+        'controllers/modales/seguridadConsolaModal.js',
         //generales
         'controllers/modales/deleteModal.js',
         ],'public/js/modals.js');
