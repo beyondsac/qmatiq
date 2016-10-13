@@ -4,9 +4,9 @@ qmatiq.controller('estilosController', ['$scope', '$uibModal', function($scope, 
 	//Metodos
 	angular.extend( $scope, {
 		showConsole: function(){
-			var modalInstance = $uibModal.open( $scope.templates(0) );
+			var modalInstance = $uibModal.open( $scope.templates() );
 		},
-		templates: function(id){
+		templates: function(){
 			return templates = {
 				templateUrl: 'templates/configuracion/modales/estilos_consola.html',
 				controller: 'estiloConsolaModal',
@@ -14,7 +14,7 @@ qmatiq.controller('estilosController', ['$scope', '$uibModal', function($scope, 
 				size: 'estilo-dialog',
 				resolve: {
 					Item: function(){
-						return id;
+						return $scope.$parent.configuraciones;
 					}
 				}
 			}

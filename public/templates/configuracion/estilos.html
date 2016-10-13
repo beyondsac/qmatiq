@@ -1,12 +1,13 @@
 <div ng-include="global.navHead"></div>
 <div ng-include="global.navUrl"></div>
+<div ng-include="global.loading"></div>
 
 <div class="franja_top"></div>
 <div class="contenido">
 
 	<div class="container-fluid p_0">
 		<div class="col-lg-9 col-md-9 col-lg-offset-3 col-md-offset-3">
-			<div class="row">
+			<div class="row" ng-show="showCargando">
 				<h1 class="fs_33 h_37_ThinC mt_30">
 					¿Qué <span class="fc_2bb673 h_47_LightC">Estilos</span> usas en tus aplicaciones?
 				</h1>

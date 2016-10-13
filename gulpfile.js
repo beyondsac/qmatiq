@@ -44,7 +44,7 @@ elixir(function(mix) {
     mix.scripts([
         'app.js',
         ],'public/js/app.js');
-
+    //Controller
     mix.scripts([
         'controllers/loginController.js',
         'controllers/globalController.js',
@@ -83,7 +83,7 @@ elixir(function(mix) {
         'controllers/reportes/frecuenciaController.js',
         'controllers/reportes/saturacionController.js',
         ],'public/js/controllers.js');
-
+    //Modales
     mix.scripts([
         'controllers/modales/rolModal.js',
         'controllers/modales/usuarioModal.js',
@@ -91,25 +91,31 @@ elixir(function(mix) {
         //generales
         'controllers/modales/deleteModal.js',
         ],'public/js/modals.js');
-
+    //Models
     mix.scripts([
         'models/userModel.js',
         'models/rolModel.js',
         'models/usuarioModel.js',
         'models/localModel.js',
-        'models/logicaKModel.js',
+        'models/configuracionModel.js',
         'models/moduloModel.js',
         ],'public/js/models.js');
-
+    //Services
     mix.scripts([
         'services/listServices.js',
         'services/recursos.js',
+        'services/upload.js',
         ],'public/js/services.js');
-
+    //Directives
+    mix.scripts([
+        'directives/uploaderModel.js',
+        ],'public/js/directives.js');
+    //Versiones
     mix.version([
         'js/lib.js',
         'js/app.js',
         'js/services.js',
+        'js/directives.js',
         'js/models.js',
         'js/controllers.js',
         'js/modals.js',]);

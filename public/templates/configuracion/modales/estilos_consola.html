@@ -3,7 +3,7 @@
 </div>
 <div id="modal_estilos_1" ng-show="showModal">
 	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal">&times;</button>
+		<button type="button" class="close" ng-click="close()">&times;</button>
 		<div class="fc_7fd0d9 h_Cond fs_16">Editar estilos para la consola</div>
 	</div>
 	<div class="modal-body">
@@ -27,83 +27,88 @@
 			</div>
 		</div>
 		<div class="overflow">
-			<ul class="nav nav-tabs h_Cond fs_16 tab_predeterminado" role="tablist">
-				<li role="presentation" class="active">
-					<a href="#tab_estilos_consola_generales" aria-controls="tab_estilos_consola_generales" role="tab" data-toggle="tab">Generales</a>
-				</li>
-			</ul>
-			  <!-- Tab panes -->
-			<div class="tab-content">
-			    <div role="tabpanel" class="tab-pane active" id="tab_estilos_consola_generales">
-					<div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 mt_20 pr_0">
-						<div class="overflow mb_10 fs_15 687a8b h_47_LightC">
-							<label class="w_50 inline-block">Logo 1</label>
-							<input type="text" class="input_gris w_157 inline-block">
-							<i class="fa fa-search inline-block"></i>
-							<span class="fs_13 fc_99a7b5 inline-block">*.PNG 50x50</span>
-						</div>
-						<div class="overflow mb_10 fs_15 687a8b h_47_LightC">
-							<label class="w_50 inline-block">Logo 2</label>
-							<input type="text" class="input_gris w_157 inline-block">
-							<i class="fa fa-search inline-block"></i>
-							<span class="fs_13 fc_99a7b5 inline-block">*.PNG 330x50</span>
-						</div>
-						<h5 class="mt_20">Colores principales (#000000)</h5>
-						<div class="inline-block mb_10 fs_15 687a8b h_47_LightC">
-							<label class="inline-block w_50">Fondo</label>
-							<div class="inline-block">
-								<input
-								    minicolors="customSettings"
-								    id="color-input"
-								    class="w_230 input_gris"
-								    type="text"
-								    ng-model="fondo">
+			<form name="ConsolaForm" ng-submit="doConsola(ConsolaForm)" autocomplete="off" novalidate>
+				<uib-tabset>
+			      	<uib-tab index="0" heading="Generales">
+			        	<div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 mt_20 pr_0">
+							<div class="overflow fs_15 687a8b h_47_LightC">
+								<label class="w_50 inline-block">Logo 1</label>
+								<div class="inline-block relative">
+									<input type="file" name="file" 
+									uploader-model="dir.file_logo1">
+									<input type="text" class="input_gris w_157 inline-block"
+									ng-model="dir.ec_logo1">
+									<i class="fa fa-search inline-block"></i>
+								</div>
+								<span class="fs_13 fc_99a7b5 inline-block">*.PNG 50x50</span>
+							</div>
+							<div class="overflow fs_15 687a8b h_47_LightC">
+								<label class="w_50 inline-block">Logo 2</label>
+								<div class="inline-block relative">
+									<input type="file" name="file" uploader-model="dir.file_logo2">
+									<input type="text" class="input_gris w_157 inline-block" 
+									ng-model="dir.ec_logo2">
+									<i class="fa fa-search inline-block"></i>
+								</div>
+								<span class="fs_13 fc_99a7b5 inline-block">*.PNG 330x50</span>
+							</div>
+							<h5 class="mt_20">Colores principales (#000000)</h5>
+							<div class="inline-block fs_15 687a8b h_47_LightC">
+								<label class="inline-block w_50">Fondo</label>
+								<div class="inline-block">
+									<input
+									    minicolors="minicolorsCustomSettings"
+									    id="color-input"
+									    class="w_230 input_gris"
+									    type="text"
+									    ng-model="configuracion.estilo_consola_principal_fondo_color">
+								</div>
+							</div>
+							<div class="inline-block fs_15 687a8b h_47_LightC">
+								<label class="inline-block w_50">Textos</label>
+								<div class="inline-block">
+									<input
+									    minicolors="minicolorsCustomSettings"
+									    id="color-input"
+									    class="w_230 input_gris"
+									    type="text"
+									    ng-model="configuracion.estilo_consola_principal_texto_color">
+								</div>
+							</div>
+							<h5>Colores secundarios (#000000)</h5>
+							<div class="inline-block fs_15 687a8b h_47_LightC">
+								<label class="inline-block w_50">Fondo</label>
+								<div class="inline-block">
+									<input
+									    minicolors="minicolorsCustomSettings"
+									    id="color-input"
+									    class="w_230 input_gris"
+									    type="text"
+									    ng-model="configuracion.estilo_consola_secundario_fondo_color">
+								</div>
+							</div>
+							<div class="inline-block fs_15 687a8b h_47_LightC">
+								<label class="inline-block w_50">Textos</label>
+								<div class="inline-block">
+									<input
+									    minicolors="minicolorsCustomSettings"
+									    id="color-input"
+									    class="w_230 input_gris"
+									    type="text"
+									    ng-model="configuracion.estilo_consola_secundario_texto_color">
+								</div>
+							</div>
+							<div class="overflow">
+								<div class="text-center">
+									<button type="submit" class="submit" ng->
+										<i class="fa fa-check-circle fs_90"></i>
+									</button>
+								</div>
 							</div>
 						</div>
-						<div class="inline-block mb_10 fs_15 687a8b h_47_LightC">
-							<label class="inline-block w_50">Textos</label>
-							<div class="inline-block">
-								<input
-								    minicolors="customSettings"
-								    id="color-input"
-								    class="w_230 input_gris"
-								    type="text"
-								    ng-model="fondo">
-							</div>
-						</div>
-						<h5>Colores secundarios (#000000)</h5>
-						<div class="inline-block mb_10 fs_15 687a8b h_47_LightC">
-							<label class="inline-block w_50">Fondo</label>
-							<div class="inline-block">
-								<input
-								    minicolors="customSettings"
-								    id="color-input"
-								    class="w_230 input_gris"
-								    type="text"
-								    ng-model="fondo">
-							</div>
-						</div>
-						<div class="inline-block mb_10 fs_15 687a8b h_47_LightC">
-							<label class="inline-block w_50">Textos</label>
-							<div class="inline-block">
-								<input
-								    minicolors="customSettings"
-								    id="color-input"
-								    class="w_230 input_gris"
-								    type="text"
-								    ng-model="fondo">
-							</div>
-						</div>
-						<div class="overflow">
-							<div class="text-center">
-								<button type="submit" class="submit">
-									<i class="fa fa-check-circle fs_90"></i>
-								</button>
-							</div>
-						</div>
-					</div>
-			    </div>
-			</div>
+			      	</uib-tab>
+			    </uib-tabset>
+		    </form>
 		</div>
 	</div>
 </div>

@@ -92,8 +92,14 @@ a {
 .relative{
   position: relative;
 }
+
 .inline-block{
   display: inline-block;
+}
+
+input[type="file"]{
+  position: absolute;
+  opacity: 0;
 }
 /* bordes */
 .br_1{
@@ -1098,6 +1104,27 @@ header {
 }
 
 /* Tabs */
+.nav-tabs{
+  background-color: #e5edf0;
+  border: 0;
+  li{
+    margin-bottom: 0;
+    &.active a, &:hover a, &:focus a{
+      color: #7fd0d9 !important;
+      background-color: #ffffff !important;
+    }
+    a{
+      border-radius:0 ;
+      border: 0 !important;
+      color: #687a8b;
+      cursor: pointer;
+      margin-right: 0;
+      &:hover, &:focus{
+        background-color: transparent;
+      }
+    }
+  }
+}
 
 .tab_predeterminado {
   background-color: #e5edf0;

@@ -1,4 +1,4 @@
-qmatiq.controller('logicakioscosController', ['$scope', 'logicaKModel', 'recursos', '$timeout', function($scope, logicaKModel, recursos, $timeout){
+qmatiq.controller('logicakioscosController', ['$scope', 'configuracionModel', 'recursos', '$timeout', function($scope, configuracionModel, recursos, $timeout){
 	//cambiando el titulo de pagina
 	$scope.$parent.headTitulo = $scope.$parent.nameProject + 'Lógica de kioscos';
 	
@@ -11,8 +11,7 @@ qmatiq.controller('logicakioscosController', ['$scope', 'logicaKModel', 'recurso
 			return $scope.$parent.configuraciones[key_obj] = recursos.changeAcceso(acceso);
 		},
 		doLogicaK: function(LogicaKForm){
-			//console.log($scope.$parent.configuraciones);
-			logicaKModel.post($scope.$parent.configuraciones).success(function(){
+			configuracionModel.post($scope.$parent.configuraciones).success(function(){
 				$scope.showAlert = true;
 				$scope.alerta	 = 'alert-success text-center';
 				$scope.alerts 	 = [{ mensaje: 'DATOS GUARDADOS' }];

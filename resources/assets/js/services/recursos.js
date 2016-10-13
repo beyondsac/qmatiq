@@ -14,4 +14,6 @@ qmatiq.service('recursos', [ function(){
 		return acceso = 0;
 	};
 
+	this.minicolors_predeterminado = { position: 'top right', letterCase: 'uppercase' };
+
 }]);

@@ -177,10 +177,10 @@ qmatiq.factory('localModel', ['$http', 'constante', function($http, constante){
 	
 	return localModel;
 }]);
-qmatiq.factory('logicaKModel', ['$http', 'constante', function($http, constante){
-	var logicaKModel = {};
+qmatiq.factory('configuracionModel', ['$http', 'constante', function($http, constante){
+	var configuracionModel = {};
 
-	logicaKModel.post = function(data){
+	configuracionModel.post = function(data){
 		return $http({
 			headers: {
 				'Content-Type': 'application/json'
@@ -191,8 +191,11 @@ qmatiq.factory('logicaKModel', ['$http', 'constante', function($http, constante)
 		});
 	};
 
+	configuracionModel.getAll = function(){
+		return $http.get(constante.URL+'cuentas/'+constante.cuenta_id+'/configuracion');
+	};
 	
-	return logicaKModel;
+	return configuracionModel;
 }]);
 qmatiq.factory('moduloModel', ['$http', 'constante', function($http, constante){
 	var moduloModel = {};

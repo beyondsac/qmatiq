@@ -7999,6 +7999,10 @@ a {
 .inline-block {
   display: inline-block; }
 
+input[type="file"] {
+  position: absolute;
+  opacity: 0; }
+
 /* bordes */
 .br_1 {
   border-right: 1px solid #e3e6eb; }
@@ -8765,6 +8769,23 @@ header {
   background-color: #e5edf0; }
 
 /* Tabs */
+.nav-tabs {
+  background-color: #e5edf0;
+  border: 0; }
+  .nav-tabs li {
+    margin-bottom: 0; }
+    .nav-tabs li.active a, .nav-tabs li:hover a, .nav-tabs li:focus a {
+      color: #7fd0d9 !important;
+      background-color: #ffffff !important; }
+    .nav-tabs li a {
+      border-radius: 0;
+      border: 0 !important;
+      color: #687a8b;
+      cursor: pointer;
+      margin-right: 0; }
+      .nav-tabs li a:hover, .nav-tabs li a:focus {
+        background-color: transparent; }
+
 .tab_predeterminado {
   background-color: #e5edf0;
   padding-bottom: 1px; }
