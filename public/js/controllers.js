@@ -436,7 +436,7 @@ qmatiq.controller('seguridadController', ['$scope', '$uibModal', function($scope
 				templateUrl: 'templates/configuracion/modales/seguridad_consola.html',
 				controller: 'seguridadConsolaModal',
 				windowClass: 'modal-predeterminado',
-				size: 'lg',
+				size: 'estilo-dialog',
 				resolve: {
 					Item: function(){
 						return id;

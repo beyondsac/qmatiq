@@ -6,8 +6,9 @@
 		<!-- Modal content-->
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<div class="fc_7fd0d9 h_Cond fs_16">Código de autenticación</div>
+				<button type="button" class="close" ng-click="close()" data-dismiss="modal">&times;</button>
+				<div class="fc_7fd0d9 h_Cond fs_16" ng-bind="modalTitle" ng-init="modalTitle='Código de autenticación'"></div>
+				<!--<div class="fc_7fd0d9 h_Cond fs_16">Código de autenticación</div>-->
 			</div>
 			<div class="modal-body">
 				<div class="overflow mb_10">
