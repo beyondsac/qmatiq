@@ -89,6 +89,7 @@ elixir(function(mix) {
         'controllers/modales/usuarioModal.js',
         'controllers/modales/estiloConsolaModal.js',
         'controllers/modales/seguridadConsolaModal.js',
+        'controllers/modales/seguridadKioscoModal.js',
         //generales
         'controllers/modales/deleteModal.js',
         ],'public/js/modals.js');
@@ -100,6 +101,7 @@ elixir(function(mix) {
         'models/localModel.js',
         'models/logicaKModel.js',
         'models/segConsolaModel.js',
+        'models/segKioscoModel.js',
         'models/moduloModel.js',
         ],'public/js/models.js');
 

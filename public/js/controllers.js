@@ -436,7 +436,10 @@ qmatiq.controller('seguridadController', ['$scope', '$rootScope', '$uibModal', '
 	//Metodos
 	angular.extend( $scope, {
 		showSeguridadConsola: function(){
-			var modalInstance = $uibModal.open( $scope.templates() );
+			var modalInstance = $uibModal.open( $scope.templatesConsola() );
+		},
+		showSeguridadKiosco: function(){
+			var modalInstance = $uibModal.open( $scope.templatesKiosco() );
 		},
 		setearFrecuencia: function(tipoFrecuencia, dias){
 			var respuesta = "";
@@ -467,10 +470,23 @@ qmatiq.controller('seguridadController', ['$scope', '$rootScope', '$uibModal', '
 				$scope.alerts.splice(0,1);
 			}, 3000);
 		},
-		templates: function(){
+		templatesConsola: function(){
 			return templates = {
 				templateUrl: 'templates/configuracion/modales/seguridad_consola.html',
 				controller: 'seguridadConsolaModal',
+				windowClass: 'modal-predeterminado',
+				size: 'estilo-dialog',
+				resolve: {
+					Item: function(){
+						return $scope.$parent.configuraciones;
+					}
+				}
+			}
+		},
+		templatesKiosco: function(){
+			return templates = {
+				templateUrl: 'templates/configuracion/modales/seguridad_kiosco.html',
+				controller: 'seguridadKioscoModal',
 				windowClass: 'modal-predeterminado',
 				size: 'estilo-dialog',
 				resolve: {
