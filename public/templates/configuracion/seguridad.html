@@ -19,8 +19,8 @@
 									<thead class="h_Cond">
 										<tr>
 											<th class="borde_cabecera_tabla_azul"></th>
-											<th class="borde_cabecera_tabla_azul pl_0">Opciones de seguridad</th>
-											<th class="borde_cabecera_tabla fc_7fd0d9">Frecuencia</th>
+											<th class="borde_cabecera_tabla_azul pl_0 col-md-8">Opciones de seguridad</th>
+											<th class="borde_cabecera_tabla fc_7fd0d9 col-md-4">Frecuencia</th>
 											<th class="borde_cabecera_tabla"></th>
 										</tr>
 									</thead>
@@ -28,7 +28,8 @@
 										<tr ng-click="showSeguridadConsola()">
 											<td></td>
 											<td class="fs_15 pl_0">Actualización de código de autenticación</td>
-											<td class="fs_15">Una vez al mes</td>
+											<td class="fs_15"
+												ng-bind="setearFrecuencia(configuraciones.seguridad_codigo_autenticacion_tipo, configuraciones.seguridad_codigo_autenticacion_dias)"></td>
 											<td></td>
 										</tr>
 										<tr>											
@@ -51,3 +52,7 @@
 
 </div>
 <div class="franja_bottom"></div>
+<!-- alertas -->
+<div class="alert alertas" ng-class="alerta" ng-repeat="alert in alerts" ng-show='showAlert'">
+	{{alert.mensaje}}
+</div>

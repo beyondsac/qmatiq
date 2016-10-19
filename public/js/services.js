@@ -30,6 +30,5 @@ qmatiq.service('recursos', [ function(){
 		}
 		return acceso = 0;
 	};
-
 }]);
 //# sourceMappingURL=services.js.map

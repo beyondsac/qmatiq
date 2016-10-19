@@ -13,5 +13,4 @@ qmatiq.service('recursos', [ function(){
 		}
 		return acceso = 0;
 	};
-
 }]);

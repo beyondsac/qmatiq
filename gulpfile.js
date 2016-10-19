@@ -99,6 +99,7 @@ elixir(function(mix) {
         'models/usuarioModel.js',
         'models/localModel.js',
         'models/logicaKModel.js',
+        'models/segConsolaModel.js',
         'models/moduloModel.js',
         ],'public/js/models.js');
 
