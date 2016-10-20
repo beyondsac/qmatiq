@@ -51,7 +51,7 @@ qmatiq.controller('seguridadController', ['$scope', '$rootScope', '$uibModal', '
 				templateUrl: 'templates/configuracion/modales/seguridad_consola.html',
 				controller: 'seguridadConsolaModal',
 				windowClass: 'modal-predeterminado',
-				size: 'estilo-dialog',
+				size: 'estilo-dialog-seguridad',
 				resolve: {
 					Item: function(){
 						return $scope.$parent.configuraciones;
@@ -64,7 +64,7 @@ qmatiq.controller('seguridadController', ['$scope', '$rootScope', '$uibModal', '
 				templateUrl: 'templates/configuracion/modales/seguridad_kiosco.html',
 				controller: 'seguridadKioscoModal',
 				windowClass: 'modal-predeterminado',
-				size: 'estilo-dialog',
+				size: 'estilo-dialog-seguridad',
 				resolve: {
 					Item: function(){
 						return $scope.$parent.configuraciones;

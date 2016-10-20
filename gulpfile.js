@@ -90,6 +90,7 @@ elixir(function(mix) {
         'controllers/modales/estiloConsolaModal.js',
         'controllers/modales/seguridadConsolaModal.js',
         'controllers/modales/seguridadKioscoModal.js',
+        'controllers/modales/peticionesDeAccesoModal.js',
         //generales
         'controllers/modales/deleteModal.js',
         ],'public/js/modals.js');
@@ -102,6 +103,7 @@ elixir(function(mix) {
         'models/logicaKModel.js',
         'models/segConsolaModel.js',
         'models/segKioscoModel.js',
+        'models/peticionesModel.js',
         'models/moduloModel.js',
         ],'public/js/models.js');
 
