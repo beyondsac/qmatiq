@@ -33,19 +33,6 @@ qmatiq.controller('seguridadController', ['$scope', '$rootScope', '$uibModal', '
 			}
 			return respuesta;
 		},
-		mostrarAlerta: function(args){
-			$scope.showAlert = true;
-			$scope.alerta	 = 'alert-success text-center';
-			$scope.alerts 	 = [{ mensaje: args }];
-			//efecto de desvanecimiento
-			$timeout(function(){
-				$scope.showAlert 	= false;
-			}, 1500);
-			//elimina la etiqueta
-			$timeout (function(){
-				$scope.alerts.splice(0,1);
-			}, 3000);
-		},
 		templatesConsola: function(){
 			return templates = {
 				templateUrl: 'templates/configuracion/modales/seguridad_consola.html',
@@ -71,6 +58,19 @@ qmatiq.controller('seguridadController', ['$scope', '$rootScope', '$uibModal', '
 					}
 				}
 			}
+		},
+		mostrarAlerta: function(args){
+			$scope.showAlert = true;
+			$scope.alerta	 = 'alert-success text-center';
+			$scope.alerts 	 = [{ mensaje: args }];
+			//efecto de desvanecimiento
+			$timeout(function(){
+				$scope.showAlert 	= false;
+			}, 1500);
+			//elimina la etiqueta
+			$timeout (function(){
+				$scope.alerts.splice(0,1);
+			}, 3000);
 		}
 	});
 }]);

@@ -1,5 +1,5 @@
-qmatiq.controller('estiloConsolaModal', ['$scope', '$rootScope', 'estConsolaModel', '$uibModalInstance', 'Item', 'recursos', 'constante', '$timeout',
-	function($scope, $rootScope, estConsolaModel, $uibModalInstance, Item, recursos, constante, $timeout){
+qmatiq.controller('estiloBienvenidaModal', ['$scope', '$rootScope', 'estBienvenidaModel', '$uibModalInstance', 'Item', 'recursos', 'constante', '$timeout',
+	function($scope, $rootScope, estBienvenidaModel, $uibModalInstance, Item, recursos, constante, $timeout){
 		//variables angularjs
 		angular.extend( $scope, {
 			showModal: true,
@@ -15,7 +15,7 @@ qmatiq.controller('estiloConsolaModal', ['$scope', '$rootScope', 'estConsolaMode
 			close: function(){
 				$uibModalInstance.dismiss('cancel');
 			},
-			doEstConsola: function(estConsolaForm){
+			doEstBienvenida: function(estBienvenidaForm){
 				//console.log(Item);
 				//Guardo la nueva configuración en la variable data
 				/*var data={

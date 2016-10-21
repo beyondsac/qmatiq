@@ -87,7 +87,15 @@ elixir(function(mix) {
     mix.scripts([
         'controllers/modales/rolModal.js',
         'controllers/modales/usuarioModal.js',
+        //estilos
         'controllers/modales/estiloConsolaModal.js',
+        'controllers/modales/estiloBienvenidaModal.js',
+        'controllers/modales/estiloIdentificacionModal.js',
+        'controllers/modales/estiloEscaneoModal.js',
+        'controllers/modales/estiloMenuModal.js',
+        'controllers/modales/estiloVideoModal.js',
+        'controllers/modales/estiloMobileModal.js',
+        //seguridad
         'controllers/modales/seguridadConsolaModal.js',
         'controllers/modales/seguridadKioscoModal.js',
         'controllers/modales/peticionesDeAccesoModal.js',
@@ -101,6 +109,15 @@ elixir(function(mix) {
         'models/usuarioModel.js',
         'models/localModel.js',
         'models/logicaKModel.js',
+        //estilos
+        'models/estConsolaModel.js',
+        'models/estBienvenidaModel.js',
+        'models/estIdentificacionModel.js',
+        'models/estEscaneoModel.js',
+        'models/estMenuModel.js',
+        'models/estVideoModel.js',
+        'models/estMobileModel.js',
+        //seguridad
         'models/segConsolaModel.js',
         'models/segKioscoModel.js',
         'models/peticionesModel.js',

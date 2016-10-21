@@ -1,10 +1,13 @@
-<div id="modal_estilos_5" class="modal fade" role="dialog">
+<div class="cargando_modal" ng-hide="showModal">
+	<div>Cargando...</div> 
+</div>
+<div id="modal_estilos_5" ng-show="showModal">
 	<div class="pull-right modal-predeterminado">
 		<!-- Modal content-->
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<div class="fc_7fd0d9 h_Cond fs_16">Editar estilos para los kioscos</div>
+				<button type="button" class="close" ng-click="close()" data-dismiss="modal">&times;</button>
+				<div class="fc_7fd0d9 h_Cond fs_16" ng-bind="modalTitle" ng-init="modalTitle='Editar estilos para los kioscos'"></div>
 			</div>
 			<div class="modal-body">
 				<div class="overflow">

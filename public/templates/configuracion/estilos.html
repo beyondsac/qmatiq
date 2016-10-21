@@ -1,12 +1,13 @@
 <div ng-include="global.navHead"></div>
 <div ng-include="global.navUrl"></div>
+<div ng-include="global.loading"></div>
 
 <div class="franja_top"></div>
 <div class="contenido">
 
 	<div class="container-fluid p_0">
 		<div class="col-lg-9 col-md-9 col-lg-offset-3 col-md-offset-3">
-			<div class="row">
+			<div class="row" ng-show="showCargando">
 				<h1 class="fs_33 h_37_ThinC mt_30">
 					¿Qué <span class="fc_2bb673 h_47_LightC">Estilos</span> usas en tus aplicaciones?
 				</h1>
@@ -29,32 +30,32 @@
 											<td class="fs_15 pl_0">Qmatiq Console</td>
 											<td></td>
 										</tr>
-										<tr class="estilos_2">											
+										<tr class="estilos_2" ng-click="showBienvenida()">											
 											<td></td>
 											<td class="fs_15 pl_0">Qmatiq Kiosk - Bienvenida</td>
 											<td></td>
 										</tr>
-										<tr class="estilos_3">											
+										<tr class="estilos_3" ng-click="showIdentificacion()">											
 											<td></td>
 											<td class="fs_15 pl_0">Qmatiq Kiosk - Identificación</td>
 											<td></td>
 										</tr>
-										<tr class="estilos_4">											
+										<tr class="estilos_4" ng-click="showEscaneo()">											
 											<td></td>
 											<td class="fs_15 pl_0">Qmatiq Kiosk - Escaneo</td>
 											<td></td>
 										</tr>
-										<tr class="estilos_5">											
+										<tr class="estilos_5" ng-click="showMenu()">											
 											<td></td>
 											<td class="fs_15 pl_0">Qmatiq Kiosk - Menú y Administración</td>
 											<td></td>
 										</tr>
-										<tr class="estilos_6">											
+										<tr class="estilos_6" ng-click="showVideo()">											
 											<td></td>
 											<td class="fs_15 pl_0">Qmatiq Video</td>
 											<td></td>
 										</tr>
-										<tr class="estilos_7">											
+										<tr class="estilos_7" ng-click="showMobile()">											
 											<td></td>
 											<td class="fs_15 pl_0">Qmatiq Mobile</td>
 											<td></td>
@@ -79,3 +80,6 @@
 
 </div>
 <div class="franja_bottom"></div>
+<div class="alert alertas" ng-class="alerta" ng-repeat="alert in alerts" ng-show='showAlert'">
+	{{alert.mensaje}}
+</div>
