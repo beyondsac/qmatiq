@@ -9,8 +9,8 @@
 				<button type="button" class="close" ng-click="close()" data-dismiss="modal">&times;</button>
 				<div class="fc_7fd0d9 h_Cond fs_16" ng-bind="modalTitle" ng-init="modalTitle='Responder petición'"></div>
 			</div>
-			<form name="peticionesForm" ng-submit="doPeticiones(peticionesForm)" autocomplete="off" novalidate>
-				<div class="modal-body">
+			<div class="modal-body">
+				<form name="peticionesForm" ng-submit="doPeticiones(peticionesForm)" autocomplete="off" novalidate>
 					<div class="overflow mb_15">
 						<div class="fc_687a8b h_47_LightC fs_15">
 							Esta solicitud de acceso fue generada por<br>
@@ -31,7 +31,10 @@
 						<!--<i class="fa fa-envelope-o fc_7fd0d9"></i> 
 						<a class="h_Cond mailto" href="mailto:demo@upch.pe">Adjuntar mensaje al correo</a>-->
 						<div class="fc_687a8b h_47_LightC fs_15">Adjuntar mensaje al correo</div>
-						<textarea rows="4" cols="50" style="resize:none" class="fc_687a8b h_47_LightC fs_15 input_gris w_100_por mb_5"></textarea>
+						<textarea rows="4" cols="50" style="resize:none" 
+							class="fc_687a8b h_47_LightC fs_15 input_gris w_100_por mb_5" 
+							ng-model="composeEmail.body">
+						</textarea>
 					</div>
 					
 					<div class="text-center mb_5">
@@ -39,8 +42,8 @@
 							<i class="fa fa-check-circle fs_90"></i>
 						</button>
 					</div>
-				</div>
-			</form>
+				</form>
+			</div>
 		</div>
 	</div>
 </div>

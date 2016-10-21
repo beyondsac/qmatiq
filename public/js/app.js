@@ -203,7 +203,8 @@ qmatiq.run(['$rootScope', '$location', 'userModel',
 
 qmatiq.constant('constante', { 
 	'URL': 'http://api.qmatiq.piensamasalla.com/v1/', 
-	'cuenta_id': 1
+	'cuenta_id': 1,
+	'CSRF_TOKEN': '{!! csrf_token() !!}'
 });
 
 
