@@ -6,6 +6,7 @@ qmatiq.controller('estiloBienvenidaModal', ['$scope', '$rootScope', 'estBienveni
 			configuraciones: {}
 		});
 		//Instanciando variables
+		$scope.includeImagenes = "templates/configuracion/modales/bienvenida/imagenes.html";
 		/*$scope.configuraciones.seguridad_codigo_autenticacion_tipo = Item.seguridad_codigo_autenticacion_tipo;
 		$scope.configuraciones.seguridad_codigo_autenticacion_dias = Item.seguridad_codigo_autenticacion_dias;
 		$scope.configuraciones.seguridad_codigo_autenticacion_fecha = Item.seguridad_codigo_autenticacion_fecha;*/
