@@ -43,12 +43,6 @@ qmatiq.config(['$routeProvider', '$locationProvider',
 			authenticated: true
 		});
 
-		$routeProvider.when('/configuracion/modales/bienvenida/imagenes',{
-			templateUrl : 'templates/configuracion/modales/bienvenida/imagenes.html',
-			//controller: 'estilosController',
-			authenticated: true
-		});
-
 		$routeProvider.when('/configuracion/seguridad',{
 			templateUrl : 'templates/configuracion/seguridad.html',
 			controller: 'seguridadController',

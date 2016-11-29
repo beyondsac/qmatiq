@@ -10,7 +10,7 @@ qmatiq.controller('estilosController', ['$scope', '$uibModal', function($scope, 
 	//Metodos
 	angular.extend( $scope, {
 		showConsole: function(){
-			var modalInstance = $uibModal.open( $scope.templates() );
+			var modalInstance = $uibModal.open( $scope.templatesConsole() );
 		},
 		showBienvenida: function(){
 			var modalInstance = $uibModal.open( $scope.templatesBienvenida() );

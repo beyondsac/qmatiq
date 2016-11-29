@@ -398,9 +398,7 @@ qmatiq.controller('logicakioscosController', ['$scope', 'configuracionModel', 'r
 	});
 
 }]);
-qmatiq.controller('estilosController', ['$scope', '$uibModal', 
-	function($scope, $uibModal){
-
+qmatiq.controller('estilosController', ['$scope', '$uibModal', function($scope, $uibModal){
 	//cambiando el titulo de pagina
 	$scope.$parent.headTitulo = $scope.$parent.nameProject + 'Estilos';
 
@@ -412,7 +410,7 @@ qmatiq.controller('estilosController', ['$scope', '$uibModal',
 	//Metodos
 	angular.extend( $scope, {
 		showConsole: function(){
-			var modalInstance = $uibModal.open( $scope.templates() );
+			var modalInstance = $uibModal.open( $scope.templatesConsole() );
 		},
 		showBienvenida: function(){
 			var modalInstance = $uibModal.open( $scope.templatesBienvenida() );
@@ -538,6 +536,7 @@ qmatiq.controller('estilosController', ['$scope', '$uibModal',
 		}
 	});
 }]);
+
 qmatiq.controller('seguridadController', ['$scope', '$rootScope', '$uibModal', '$timeout', 
 	function($scope, $rootScope, $uibModal, $timeout){
 

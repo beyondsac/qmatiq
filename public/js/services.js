@@ -34,6 +34,7 @@ qmatiq.service('recursos', [ function(){
 	this.minicolors_predeterminado = { position: 'top right', letterCase: 'uppercase' };
 
 }]);
+
 qmatiq.service('upload', ['$http', '$q', 'constante', function($http, $q, constante){
 	 this.uploadFile = function(file, file_id, uploadUrl){
 	 	var deferred = $q.defer();
