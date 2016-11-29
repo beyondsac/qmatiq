@@ -1,34 +1,48 @@
-<div id="modal_peticiones" class="modal fade modales" role="dialog">
-	<div class="pull-right modal-predeterminado modal-usuarios">
+<div class="cargando_modal" ng-hide="showModal">
+	<div>Cargando...</div> 
+</div>
+<div id="modal_peticiones_de_acceso" ng-show="showModal">
+	<div class="pull-right modal-predeterminado modal-seguridad">
 		<!-- Modal content-->
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<div class="fc_7fd0d9 h_Cond fs_16">Responder peticiones</div>
+				<button type="button" class="close" ng-click="close()" data-dismiss="modal">&times;</button>
+				<div class="fc_7fd0d9 h_Cond fs_16" ng-bind="modalTitle" ng-init="modalTitle='Responder petición'"></div>
 			</div>
 			<div class="modal-body">
-				<div class="overflow mb_10">
-					<div class="fc_687a8b h_47_LightC fs_15">
-						Esta solicitud de acceso fue generada por<br>
-						<span class="fc_7fd0d9">Enrique Casas</span> al intentar ingresar desde<br>
-						una ubicación desconocida.
+				<form name="peticionesForm" ng-submit="doPeticiones(peticionesForm)" autocomplete="off" novalidate>
+					<div class="overflow mb_15">
+						<div class="fc_687a8b h_47_LightC fs_15">
+							Esta solicitud de acceso fue generada por<br>
+							<span class="fc_7fd0d9">Enrique Casas</span> al intentar ingresar desde<br>
+							una ubicación desconocida.
+						</div>
 					</div>
-				</div>
-				<div class="overflow mb_10">
-					<div class="fc_687a8b h_47_LightC fs_15">Rol asignado</div>
-					<select name="rol" id="rol" class="fs_15 h_47_LightC input_gris w_100_por">
-						<option value="Aceptar petición">Aceptar petición</option>
-					</select>
-				</div>
-				<div class="plr_15 pt_1 fc_7fd0d9">	
-					<i class="fa fa-envelope-o fc_7fd0d9"></i> 
-					<a class="h_Cond mailto" href="mailto:demo@upch.pe">Enviar correo</a>
-				</div>
-				<div class="text-center">
-					<button type="submit" class="submit">
-						<i class="fa fa-check-circle fs_90"></i>
-					</button>
-				</div>
+					<div class="overflow mb_15">
+						<div class="fc_687a8b h_47_LightC fs_15">Seleccionar acción</div>
+						<select name="accion" id="accion" class="fs_15 h_47_LightC input_gris w_100_por" 
+							ng-model="listaAcciones" ng-options="accion as accion.label for accion in acciones">
+							<p>Ordered by: {{listaAcciones.label}}</p>
+							<!--<option value="aceptar">Aceptar petición</option>
+							<option value="rechazar">Rechazar petición</option>-->
+						</select>
+					</div>
+					<div class="plr_15 pt_1 fc_7fd0d9 mb_10">	
+						<!--<i class="fa fa-envelope-o fc_7fd0d9"></i> 
+						<a class="h_Cond mailto" href="mailto:demo@upch.pe">Adjuntar mensaje al correo</a>-->
+						<div class="fc_687a8b h_47_LightC fs_15">Adjuntar mensaje al correo</div>
+						<textarea rows="4" cols="50" style="resize:none" 
+							class="fc_687a8b h_47_LightC fs_15 input_gris w_100_por mb_5" 
+							ng-model="composeEmail.body">
+						</textarea>
+					</div>
+					
+					<div class="text-center mb_5">
+						<button type="submit" class="submit">
+							<i class="fa fa-check-circle fs_90"></i>
+						</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

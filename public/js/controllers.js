@@ -398,15 +398,41 @@ qmatiq.controller('logicakioscosController', ['$scope', 'configuracionModel', 'r
 	});
 
 }]);
-qmatiq.controller('estilosController', ['$scope', '$uibModal', function($scope, $uibModal){
+qmatiq.controller('estilosController', ['$scope', '$uibModal', 
+	function($scope, $uibModal){
+
 	//cambiando el titulo de pagina
 	$scope.$parent.headTitulo = $scope.$parent.nameProject + 'Estilos';
+
+	//Alertas: Recibe pedido enviado por seguridadConsolaModal.js para mostrar alerta
+    $scope.$on('mostrar-alerta', function(event, args) {
+    	$scope.mostrarAlerta(args);
+	});
+
 	//Metodos
 	angular.extend( $scope, {
 		showConsole: function(){
 			var modalInstance = $uibModal.open( $scope.templates() );
 		},
-		templates: function(){
+		showBienvenida: function(){
+			var modalInstance = $uibModal.open( $scope.templatesBienvenida() );
+		},
+		showIdentificacion: function(){
+			var modalInstance = $uibModal.open( $scope.templatesIdentificacion() );
+		},
+		showEscaneo: function(){
+			var modalInstance = $uibModal.open( $scope.templatesEscaneo() );
+		},
+		showMenu: function(){
+			var modalInstance = $uibModal.open( $scope.templatesMenu() );
+		},
+		showVideo: function(){
+			var modalInstance = $uibModal.open( $scope.templatesVideo() );
+		},
+		showMobile: function(){
+			var modalInstance = $uibModal.open( $scope.templatesMobile() );
+		},
+		templatesConsole: function(){
 			return templates = {
 				templateUrl: 'templates/configuracion/modales/estilos_consola.html',
 				controller: 'estiloConsolaModal',
@@ -418,18 +444,220 @@ qmatiq.controller('estilosController', ['$scope', '$uibModal', function($scope, 
 					}
 				}
 			}
+		},
+		templatesBienvenida: function(){
+			return templates = {
+				templateUrl: 'templates/configuracion/modales/estilos_bienvenida.html',
+				controller: 'estiloBienvenidaModal',
+				windowClass: 'modal-predeterminado',
+				size: 'estilo-dialog',
+				resolve: {
+					Item: function(){
+						return $scope.$parent.configuraciones;
+					}
+				}
+			}
+		},
+		templatesIdentificacion: function(){
+			return templates = {
+				templateUrl: 'templates/configuracion/modales/estilos_identificacion.html',
+				controller: 'estiloIdentificacionModal',
+				windowClass: 'modal-predeterminado',
+				size: 'estilo-dialog',
+				resolve: {
+					Item: function(){
+						return $scope.$parent.configuraciones;
+					}
+				}
+			}
+		},
+		templatesEscaneo: function(){
+			return templates = {
+				templateUrl: 'templates/configuracion/modales/estilos_escaneos.html',
+				controller: 'estiloEscaneoModal',
+				windowClass: 'modal-predeterminado',
+				size: 'estilo-dialog',
+				resolve: {
+					Item: function(){
+						return $scope.$parent.configuraciones;
+					}
+				}
+			}
+		},
+		templatesMenu: function(){
+			return templates = {
+				templateUrl: 'templates/configuracion/modales/estilos_menu_administracion.html',
+				controller: 'estiloMenuModal',
+				windowClass: 'modal-predeterminado',
+				size: 'estilo-dialog',
+				resolve: {
+					Item: function(){
+						return $scope.$parent.configuraciones;
+					}
+				}
+			}
+		},
+		templatesVideo: function(){
+			return templates = {
+				templateUrl: 'templates/configuracion/modales/estilos_video.html',
+				controller: 'estiloVideoModal',
+				windowClass: 'modal-predeterminado',
+				size: 'estilo-dialog',
+				resolve: {
+					Item: function(){
+						return $scope.$parent.configuraciones;
+					}
+				}
+			}
+		},
+		templatesMobile: function(){
+			return templates = {
+				templateUrl: 'templates/configuracion/modales/estilos_mobile.html',
+				controller: 'estiloMobileModal',
+				windowClass: 'modal-predeterminado',
+				size: 'estilo-dialog',
+				resolve: {
+					Item: function(){
+						return $scope.$parent.configuraciones;
+					}
+				}
+			}
+		},
+		mostrarAlerta: function(args){
+			$scope.showAlert = true;
+			$scope.alerta	 = 'alert-success text-center';
+			$scope.alerts 	 = [{ mensaje: args }];
+			//efecto de desvanecimiento
+			$timeout(function(){
+				$scope.showAlert 	= false;
+			}, 1500);
+			//elimina la etiqueta
+			$timeout (function(){
+				$scope.alerts.splice(0,1);
+			}, 3000);
 		}
 	});
 }]);
-qmatiq.controller('seguridadController', ['$scope', function($scope){
+qmatiq.controller('seguridadController', ['$scope', '$rootScope', '$uibModal', '$timeout', 
+	function($scope, $rootScope, $uibModal, $timeout){
+
 	//cambiando el titulo de pagina
 	$scope.$parent.headTitulo = $scope.$parent.nameProject + 'Seguridad';
+
+	//Alertas: Recibe pedido enviado por seguridadConsolaModal.js para mostrar alerta
+    $scope.$on('mostrar-alerta', function(event, args) {
+    	$scope.mostrarAlerta(args);
+	});
+
+	//Metodos
+	angular.extend( $scope, {
+		showSeguridadConsola: function(){
+			var modalInstance = $uibModal.open( $scope.templatesConsola() );
+		},
+		showSeguridadKiosco: function(){
+			var modalInstance = $uibModal.open( $scope.templatesKiosco() );
+		},
+		setearFrecuencia: function(tipoFrecuencia, dias){
+			var respuesta = "";
+			//console.log("tipoFrecuencia:" + tipoFrecuencia);
+			if (tipoFrecuencia == 0) {
+				respuesta = "Nunca actualizar";
+			} else if (tipoFrecuencia == 1) {
+				respuesta = "Una vez al mes";
+			} else if (tipoFrecuencia == 2) {
+				respuesta = "Una vez a la semana";
+			} else if (tipoFrecuencia == 3) {
+				respuesta = "Una vez al día";
+			} else if (tipoFrecuencia == 4) {
+				respuesta = "Actualizar cada " + dias + " días";
+			}
+			return respuesta;
+		},
+		templatesConsola: function(){
+			return templates = {
+				templateUrl: 'templates/configuracion/modales/seguridad_consola.html',
+				controller: 'seguridadConsolaModal',
+				windowClass: 'modal-predeterminado',
+				size: 'estilo-dialog-seguridad',
+				resolve: {
+					Item: function(){
+						return $scope.$parent.configuraciones;
+					}
+				}
+			}
+		},
+		templatesKiosco: function(){
+			return templates = {
+				templateUrl: 'templates/configuracion/modales/seguridad_kiosco.html',
+				controller: 'seguridadKioscoModal',
+				windowClass: 'modal-predeterminado',
+				size: 'estilo-dialog-seguridad',
+				resolve: {
+					Item: function(){
+						return $scope.$parent.configuraciones;
+					}
+				}
+			}
+		},
+		mostrarAlerta: function(args){
+			$scope.showAlert = true;
+			$scope.alerta	 = 'alert-success text-center';
+			$scope.alerts 	 = [{ mensaje: args }];
+			//efecto de desvanecimiento
+			$timeout(function(){
+				$scope.showAlert 	= false;
+			}, 1500);
+			//elimina la etiqueta
+			$timeout (function(){
+				$scope.alerts.splice(0,1);
+			}, 3000);
+		}
+	});
 }]);
-qmatiq.controller('peticionesController', ['$scope', function($scope){
+qmatiq.controller('peticionesController', ['$scope', '$rootScope', '$uibModal', '$timeout', 
+	function($scope, $rootScope, $uibModal, $timeout){
 	//cambiando el titulo de pagina
 	$scope.$parent.headTitulo = $scope.$parent.nameProject + 'Peticiones de acceso';
 	//quitando el show Cargando
 	$scope.showCargando = true;
+
+	//Alertas: Recibe pedido enviado por seguridadConsolaModal.js para mostrar alerta
+    $scope.$on('mostrar-alerta', function(event, type, message) {
+    	$scope.mostrarAlerta(type, message);
+	});
+
+	//Metodos
+	angular.extend( $scope, {
+		showPeticionesDeAcceso: function(){
+			var modalInstance = $uibModal.open( $scope.templates() );
+		},
+		mostrarAlerta: function(type, message){
+			$scope.showAlert = true;
+			$scope.alerta	 = type + ' text-center';
+			$scope.alerts 	 = [{ mensaje: message }];
+			//efecto de desvanecimiento
+			$timeout(function(){
+				$scope.showAlert 	= false;
+			}, 1500);
+			//elimina la etiqueta
+			$timeout (function(){
+				$scope.alerts.splice(0,1);
+			}, 3000);
+		},
+		templates: function(){
+			return templates = {
+				templateUrl: 'templates/configuracion/modales/peticiones_de_acceso.html',
+				controller: 'peticionesDeAccesoModal',
+				windowClass: 'modal-predeterminado',
+				size: 'estilo-dialog-peticiones',
+				resolve: {
+					Item: function(){
+						return $scope.$parent.configuraciones;
+					}
+				}
+			}
+		}
+	});
 }]);
 qmatiq.controller('planificacionController', ['$scope', function($scope){
 	//cambiando el titulo de pagina

@@ -181,87 +181,87 @@ input[type="file"]{
 /* size */
 
 .fs_13 {
-  font-size: 13px;
+  font-size: 13px !important;
 }
 
 .fs_15 {
-  font-size: 15px;
+  font-size: 15px !important;
 }
 
 .fs_16 {
-  font-size: 16px;
+  font-size: 16px !important;
 }
 
 .fs_17 {
-  font-size: 17px;
+  font-size: 17px !important;
 }
 
 .fs_18 {
-  font-size: 18px;
+  font-size: 18px !important;
 }
 
 .fs_19 {
-  font-size: 19px;
+  font-size: 19px !important;
 }
 
 .fs_20 {
-  font-size: 20px;
+  font-size: 20px !important;
 }
 
 .fs_21 {
-  font-size: 21px;
+  font-size: 21px !important;
 }
 
 .fs_23 {
-  font-size: 23px;
+  font-size: 23px !important;
 }
 
 .fs_25 {
-  font-size: 25px;
+  font-size: 25px !important;
 }
 
 .fs_29 {
-  font-size: 29px;
+  font-size: 29px !important;
 }
 
 .fs_32 {
-  font-size: 32px;
+  font-size: 32px !important;
 }
 
 .fs_33 {
-  font-size: 33px;
+  font-size: 33px !important;
 }
 
 .fs_35 {
-  font-size: 35px;
+  font-size: 35px !important;
 }
 
 .fs_45 {
-  font-size: 45px;
+  font-size: 45px !important;
 }
 
 .fs_50 {
-  font-size: 50px;
+  font-size: 50px !important;
 }
 
 .fs_51 {
-  font-size: 51px;
+  font-size: 51px !important;
 }
 
 .fs_55 {
-  font-size: 55px;
+  font-size: 55px !important;
 }
 
 .fs_61 {
-  font-size: 61px;
+  font-size: 61px !important;
 }
 
 .fs_71 {
-  font-size: 71px;
+  font-size: 71px !important;
 }
 
 .fs_90 {
-  font-size: 90px;
+  font-size: 90px !important;
 }
 
 /* fonts */
@@ -441,6 +441,10 @@ input[type="file"]{
 
 .mb_10 {
   margin-bottom: 10px;
+}
+
+.mb_15 {
+  margin-bottom: 15px;
 }
 
 .mb_20 {
@@ -846,6 +850,12 @@ header {
   padding: 0 5px;
 }
 
+.input_disabled {
+  background-color: #d3d4d8;
+  border: 1px solid #c3c6cb;
+  padding: 0 5px;
+}
+
 .submit {
   background-color: #fff;
   border: 0;
@@ -859,6 +869,14 @@ header {
 
 .submit i {
   color: #dae4e8;
+}
+
+.submit:hover i {
+  color: #2bb673;
+}
+
+.submit:active i {
+  color: #109856;
 }
 
 .submit_modal button {
@@ -896,6 +914,12 @@ header {
   }
   .modal-estilo-dialog{
     width: 430px;
+  }
+  .modal-estilo-dialog-seguridad{
+    width: 238px;
+  }
+  .modal-estilo-dialog-peticiones{
+    width: 252px;
   }
 }
 
@@ -1287,9 +1311,13 @@ header {
 /* alert */
 .alertas{
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200px;
+  bottom: 25px;
+  right: 0px;
+  padding-right: 90px;
+  border-radius: 0px;
+  /*top: 50%;*/
+  /*left: 50%;*/
+  /*width: 200px;*/
   transition: all linear 2s;
 }
 .alertas.ng-hide {

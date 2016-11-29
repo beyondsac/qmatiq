@@ -30,32 +30,32 @@
 											<td class="fs_15 pl_0">Qmatiq Console</td>
 											<td></td>
 										</tr>
-										<tr class="estilos_2">											
+										<tr class="estilos_2" ng-click="showBienvenida()">											
 											<td></td>
 											<td class="fs_15 pl_0">Qmatiq Kiosk - Bienvenida</td>
 											<td></td>
 										</tr>
-										<tr class="estilos_3">											
+										<tr class="estilos_3" ng-click="showIdentificacion()">											
 											<td></td>
 											<td class="fs_15 pl_0">Qmatiq Kiosk - Identificación</td>
 											<td></td>
 										</tr>
-										<tr class="estilos_4">											
+										<tr class="estilos_4" ng-click="showEscaneo()">											
 											<td></td>
 											<td class="fs_15 pl_0">Qmatiq Kiosk - Escaneo</td>
 											<td></td>
 										</tr>
-										<tr class="estilos_5">											
+										<tr class="estilos_5" ng-click="showMenu()">											
 											<td></td>
 											<td class="fs_15 pl_0">Qmatiq Kiosk - Menú y Administración</td>
 											<td></td>
 										</tr>
-										<tr class="estilos_6">											
+										<tr class="estilos_6" ng-click="showVideo()">											
 											<td></td>
 											<td class="fs_15 pl_0">Qmatiq Video</td>
 											<td></td>
 										</tr>
-										<tr class="estilos_7">											
+										<tr class="estilos_7" ng-click="showMobile()">											
 											<td></td>
 											<td class="fs_15 pl_0">Qmatiq Mobile</td>
 											<td></td>
@@ -80,3 +80,6 @@
 
 </div>
 <div class="franja_bottom"></div>
+<div class="alert alertas" ng-class="alerta" ng-repeat="alert in alerts" ng-show='showAlert'">
+	{{alert.mensaje}}
+</div>

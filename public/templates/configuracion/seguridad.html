@@ -1,12 +1,13 @@
 <div ng-include="global.navHead"></div>
 <div ng-include="global.navUrl"></div>
+<div ng-include="global.loading"></div>
 
 <div class="franja_top"></div>
 <div class="contenido">
 
 	<div class="container-fluid p_0">
 		<div class="col-lg-9 col-md-9 col-lg-offset-3 col-md-offset-3">
-			<div class="row">
+			<div class="row" ng-show="showCargando">
 				<h1 class="fs_33 h_37_ThinC mt_30">
 					¿Qué configuración de <span class="fc_2bb673 h_47_LightC">Seguridad</span> utilizarás?
 				</h1>
@@ -19,22 +20,24 @@
 									<thead class="h_Cond">
 										<tr>
 											<th class="borde_cabecera_tabla_azul"></th>
-											<th class="borde_cabecera_tabla_azul pl_0">Opciones de seguridad</th>
-											<th class="borde_cabecera_tabla fc_7fd0d9">Frecuencia</th>
+											<th class="borde_cabecera_tabla_azul pl_0 col-md-8">Opciones de seguridad</th>
+											<th class="borde_cabecera_tabla fc_7fd0d9 col-md-4">Frecuencia</th>
 											<th class="borde_cabecera_tabla"></th>
 										</tr>
 									</thead>
 									<tbody class="h_47_LightC fc_687a8b">
-										<tr>											
+										<tr ng-click="showSeguridadConsola()">
 											<td></td>
 											<td class="fs_15 pl_0">Actualización de código de autenticación</td>
-											<td class="fs_15">Una vez al mes</td>
+											<td class="fs_15"
+												ng-bind="setearFrecuencia(configuraciones.seguridad_codigo_autenticacion_tipo, configuraciones.seguridad_codigo_autenticacion_dias)"></td>
 											<td></td>
 										</tr>
-										<tr>											
+										<tr ng-click="showSeguridadKiosco()">											
 											<td></td>
-											<td class="fs_15 pl_0">Actualización de código en kioscos</td>
-											<td class="fs_15">Nunca actualizar</td>
+											<td class="fs_15 pl_0">Actualización de códigos para kioscos</td>
+											<td class="fs_15"
+												ng-bind="setearFrecuencia(configuraciones.seguridad_codigo_kiosco_tipo, configuraciones.seguridad_codigo_kiosco_dias)"></td>
 											<td></td>
 										</tr>
 									</tbody>
@@ -51,3 +54,7 @@
 
 </div>
 <div class="franja_bottom"></div>
+<!-- alertas -->
+<div class="alert alertas" ng-class="alerta" ng-repeat="alert in alerts" ng-show='showAlert'">
+	{{alert.mensaje}}
+</div>

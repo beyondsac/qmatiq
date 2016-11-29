@@ -1,0 +1,97 @@
+<div class="cargando_modal" ng-hide="showModal">
+	<div>Cargando...</div> 
+</div>
+<div id="modal_seguridad_consola" ng-show="showModal">
+	<div class="pull-right modal-predeterminado modal-seguridad">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" ng-click="close()" data-dismiss="modal">&times;</button>
+				<div class="fc_7fd0d9 h_Cond fs_16" ng-bind="modalTitle" ng-init="modalTitle='Código de autenticación'"></div>
+			</div>
+			
+			<div class="modal-body">
+				<form name="segConsolaForm" ng-submit="doSegConsola(segConsolaForm)" autocomplete="off" novalidate>
+					<!--{{configuraciones.seguridad_codigo_autenticacion_tipo}}-->
+					<div class="overflow mb_10">
+						<span class="fs_15 h_47_LightC fc_687a8b relative cursor">
+							<input type="radio" name="rbutton" 
+								ng-model="configuraciones.seguridad_codigo_autenticacion_tipo" value="0" 
+								class="radio_hidden">
+							<i class="fa"
+								ng-class="configuraciones.seguridad_codigo_autenticacion_tipo==0 ? 
+								'fa-dot-circle-o' : 'fc_red fa-circle-o'"></i> Nunca actualizar
+						</span>
+					</div>
+					<div class="overflow mb_10">
+						<span class="fs_15 h_47_LightC fc_687a8b relative cursor">
+							<input type="radio" name="rbutton" 
+								ng-model="configuraciones.seguridad_codigo_autenticacion_tipo" value="1" 
+								class="radio_hidden">
+							<i class="fa"
+								ng-class="configuraciones.seguridad_codigo_autenticacion_tipo==1 ? 
+								'fa-dot-circle-o' : 'fc_red fa-circle-o'"></i> Actualizar una vez al mes
+						</span>
+					</div>
+					<div class="overflow mb_10">
+						<span class="fs_15 h_47_LightC fc_687a8b relative cursor">
+							<input type="radio" name="rbutton" 
+								ng-model="configuraciones.seguridad_codigo_autenticacion_tipo" value="2" 
+								class="radio_hidden">
+							<i class="fa"
+								ng-class="configuraciones.seguridad_codigo_autenticacion_tipo==2 ? 
+								'fa-dot-circle-o' : 'fc_red fa-circle-o'"></i> Actualizar una vez a la semana
+						</span>
+					</div>
+					<div class="overflow mb_10">
+						<span class="fs_15 h_47_LightC fc_687a8b relative cursor">
+							<input type="radio" name="rbutton" 
+								ng-model="configuraciones.seguridad_codigo_autenticacion_tipo" value="3" 
+								class="radio_hidden">
+							<i class="fa"
+								ng-class="configuraciones.seguridad_codigo_autenticacion_tipo==3 ? 
+								'fa-dot-circle-o' : 'fc_red fa-circle-o'"></i> Actualizar una vez al día
+						</span>
+					</div>
+					<div class="overflow mb_10">
+						<span class="fs_15 h_47_LightC fc_687a8b relative cursor">
+							<input type="radio" name="rbutton" 
+								ng-model="configuraciones.seguridad_codigo_autenticacion_tipo" value="4" 
+								class="radio_hidden">
+							<i class="fa"
+								ng-class="configuraciones.seguridad_codigo_autenticacion_tipo==4 ? 
+								'fa-dot-circle-o' : 'fc_red fa-circle-o'"></i> Actualizar cada 
+						</span>
+						<span class="fs_15 h_47_LightC fc_687a8b">
+							<input type="text" class="input_gris input_logica_kiosco" 
+								ng-model="configuraciones.seguridad_codigo_autenticacion_dias" 
+								ng-disabled="configuraciones.seguridad_codigo_autenticacion_tipo != 4"
+								ng-class="configuraciones.seguridad_codigo_autenticacion_tipo != 4 ? 'input_disabled' : 'input_gris'">
+						</span>
+						<!-- El input 4 se duplica para poder seleccionar el radio button apretando el texto "días" -->
+						<span class="fs_15 h_47_LightC fc_687a8b relative cursor">
+							<input type="radio" name="rbutton" 
+								ng-model="configuraciones.seguridad_codigo_autenticacion_tipo" value="4" 
+								class="radio_hidden">
+							días
+						</span>
+					</div>
+					<div class="overflow mb_10 ml_18">
+						<span class="fs_15 h_47_LightC fc_687a8b">
+							Fecha de próxima actualización <br>
+							<span class="fs_15 h_47_LightC fc_687a8b">
+								<input type="text" class="input_gris w_170 mr_20" 
+									ng-model="configuraciones.seguridad_codigo_autenticacion_fecha">
+							</span>
+						</span>
+					</div>
+					<div class="text-center">
+						<button type="submit" class="submit">
+							<i class="fa fa-check-circle fs_90"></i>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

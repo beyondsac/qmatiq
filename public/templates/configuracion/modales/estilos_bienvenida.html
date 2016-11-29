@@ -1,10 +1,13 @@
-<div id="modal_estilos_2" class="modal fade" role="dialog">
+<div class="cargando_modal" ng-hide="showModal">
+	<div>Cargando...</div> 
+</div>
+<div id="modal_estilos_2" ng-show="showModal">
 	<div class="pull-right modal-predeterminado">
 		<!-- Modal content-->
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<div class="fc_7fd0d9 h_Cond fs_16">Editar estilos para los kioscos</div>
+				<button type="button" class="close" ng-click="close()" data-dismiss="modal">&times;</button>
+				<div class="fc_7fd0d9 h_Cond fs_16" ng-bind="modalTitle" ng-init="modalTitle='Editar estilos para los kioscos'"></div>
 			</div>
 			<div class="modal-body">
 				<div class="overflow">
@@ -13,27 +16,46 @@
 					</div>
 				</div>
 				<div class="overflow">
-					<ul class="nav nav-tabs h_Cond fs_16 tab_predeterminado tab_estilos" role="tablist">
-						<li role="presentation" class="active">
-							<a href="#estilos_bienvenida_imagenes" aria-controls="estilos_bienvenida_imagenes" role="tab" data-toggle="tab">Imágenes</a>
-						</li>
-						<li role="presentation">
-							<a href="#estilos_bienvenida_textos" aria-controls="estilos_bienvenida_textos" role="tab" data-toggle="tab">Textos</a>
-						</li>
-						<li role="presentation">
-							<a href="#estilos_bienvenida_botones" aria-controls="estilos_bienvenida_botones" role="tab" data-toggle="tab">Botones</a>
-						</li>
-						<li role="presentation">
-							<a href="#estilos_bienvenida_boton_ticket" aria-controls="estilos_bienvenida_boton_ticket" role="tab" data-toggle="tab">Botón ticket</a>
-						</li>
-						<li role="presentation">
-							<a href="#estilos_bienvenida_mensajes" aria-controls="estilos_bienvenida_mensajes" role="tab" data-toggle="tab">Mensajes</a>
-						</li>
-					</ul>
+					<uib-tabset>
+		      			<uib-tab index="0" heading="Imágenes">
+		      				<div id="modal_estilos_bienvenida_imagenes">
+		<div class="overflow imagen_estilos">
+			<!--<img ng-src="{{imagen}}">-->
+			<!--<img src="{{ asset('img/estilos_bienvenida_a.jpg')}}">-->
+			<!--<img src="../../../../img/estilos_bienvenida_a.jpg">-->
+			<img src="img/estilos_bienvenida_a.jpg">
+		</div>
+		<!--<div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 mt_10 pr_0 alto_bienvenida">-->
+		<div class="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1 mt_10 pr_0">
+			<div class="overflow fs_15 687a8b h_47_LightC">
+				<label class="w_50">Fondo</label>
+				<input type="text" class="input_gris w_157">
+				<i class="fa fa-search"></i>
+				<span class="fs_13 fc_99a7b5">*.PNG 800x480</span>
+			</div>
+			<div class="overflow btn_bienvenida mt_15 mb_10">
+				<div class="text-center">
+					<button type="submit" class="submit">
+						<i class="fa fa-check-circle fs_90"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+		      			</uib-tab>
+		      			<uib-tab index="1" heading="Textos">
+		      			</uib-tab>
+		      			<uib-tab index="2" heading="Botones">
+		      			</uib-tab>
+		      			<uib-tab index="3" heading="Botón ticket">
+		      			</uib-tab>
+		      			<uib-tab index="4" heading="Mensajes">
+		      			</uib-tab>
+		      		</uib-tabset>
+
 					  <!-- Tab panes -->
-					<div class="tab-content">
-					    <div role="tabpanel" class="tab-pane active" id="estilos_bienvenida_imagenes">
-					    	@include('configuracion.modales.bienvenida.imagenes')
+					<!--<div class="tab-content">
+					    <div role="tabpanel" class="tab-pane active" id="estilos_bienvenida_imagenes" ng-include="includeImagenes">
 					    </div>
 					    <div role="tabpanel" class="tab-pane" id="estilos_bienvenida_textos">
 					    	@include('configuracion.modales.bienvenida.textos')
@@ -47,7 +69,7 @@
 					    <div role="tabpanel" class="tab-pane" id="estilos_bienvenida_mensajes">
 					    	@include('configuracion.modales.bienvenida.mensajes')
 					    </div>
-					</div>
+					</div>-->
 				</div>
 			</div>
 		</div>

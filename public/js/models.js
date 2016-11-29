@@ -197,6 +197,176 @@ qmatiq.factory('configuracionModel', ['$http', 'constante', function($http, cons
 	
 	return configuracionModel;
 }]);
+qmatiq.factory('estConsolaModel', ['$http', 'constante', function($http, constante){
+	var estConsolaModel = {};
+
+	estConsolaModel.post = function(data){
+		return $http({
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			url : constante.URL+'cuentas/'+constante.cuenta_id+'/configuracion',
+			method : 'POST',
+			data : data
+		});
+	};
+
+	
+	return estConsolaModel;
+}]);
+qmatiq.factory('estBienvenidaModel', ['$http', 'constante', function($http, constante){
+	var estBienvenidaModel = {};
+
+	estBienvenidaModel.post = function(data){
+		return $http({
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			url : constante.URL+'cuentas/'+constante.cuenta_id+'/configuracion',
+			method : 'POST',
+			data : data
+		});
+	};
+
+	
+	return estBienvenidaModel;
+}]);
+qmatiq.factory('estIdentificacionModel', ['$http', 'constante', function($http, constante){
+	var estIdentificacionModel = {};
+
+	estIdentificacionModel.post = function(data){
+		return $http({
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			url : constante.URL+'cuentas/'+constante.cuenta_id+'/configuracion',
+			method : 'POST',
+			data : data
+		});
+	};
+
+	
+	return estIdentificacionModel;
+}]);
+qmatiq.factory('estEscaneoModel', ['$http', 'constante', function($http, constante){
+	var estEscaneoModel = {};
+
+	estEscaneoModel.post = function(data){
+		return $http({
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			url : constante.URL+'cuentas/'+constante.cuenta_id+'/configuracion',
+			method : 'POST',
+			data : data
+		});
+	};
+
+	
+	return estEscaneoModel;
+}]);
+qmatiq.factory('estMenuModel', ['$http', 'constante', function($http, constante){
+	var estMenuModel = {};
+
+	estMenuModel.post = function(data){
+		return $http({
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			url : constante.URL+'cuentas/'+constante.cuenta_id+'/configuracion',
+			method : 'POST',
+			data : data
+		});
+	};
+
+	
+	return estMenuModel;
+}]);
+qmatiq.factory('estVideoModel', ['$http', 'constante', function($http, constante){
+	var estVideoModel = {};
+
+	estVideoModel.post = function(data){
+		return $http({
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			url : constante.URL+'cuentas/'+constante.cuenta_id+'/configuracion',
+			method : 'POST',
+			data : data
+		});
+	};
+
+	
+	return estVideoModel;
+}]);
+qmatiq.factory('estMobileModel', ['$http', 'constante', function($http, constante){
+	var estMobileModel = {};
+
+	estMobileModel.post = function(data){
+		return $http({
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			url : constante.URL+'cuentas/'+constante.cuenta_id+'/configuracion',
+			method : 'POST',
+			data : data
+		});
+	};
+
+	
+	return estMobileModel;
+}]);
+qmatiq.factory('segConsolaModel', ['$http', 'constante', function($http, constante){
+	var segConsolaModel = {};
+
+	segConsolaModel.post = function(data){
+		return $http({
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			url : constante.URL+'cuentas/'+constante.cuenta_id+'/configuracion',
+			method : 'POST',
+			data : data
+		});
+	};
+
+	
+	return segConsolaModel;
+}]);
+qmatiq.factory('segKioscoModel', ['$http', 'constante', function($http, constante){
+	var segKioscoModel = {};
+
+	segKioscoModel.post = function(data){
+		return $http({
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			url : constante.URL+'cuentas/'+constante.cuenta_id+'/configuracion',
+			method : 'POST',
+			data : data
+		});
+	};
+
+	
+	return segKioscoModel;
+}]);
+//TODO: ESTA DATA TODAVIA NO EXISTE EN EL API **********************************************
+qmatiq.factory('peticionesModel', ['$http', 'constante', function($http, constante){
+	var peticionesModel = {};
+
+	peticionesModel.post = function(data){
+		return $http({
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			url : constante.URL+'cuentas/'+constante.cuenta_id+'/configuracion',
+			method : 'POST',
+			data : data
+		});
+	};
+	
+	return peticionesModel;
+}]);
 qmatiq.factory('moduloModel', ['$http', 'constante', function($http, constante){
 	var moduloModel = {};
 
